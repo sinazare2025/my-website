@@ -16,6 +16,9 @@
     <!-- لینک به Tailwind CSS برای استایل‌دهی سریع و حرفه‌ای -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- لینک به AOS برای انیمیشن‌های اسکرول -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
     <style>
         /* اضافه کردن انیمیشن‌های سفارشی */
         .hover\:scale-105:hover {
@@ -39,39 +42,73 @@
     
     <!-- محتوای اصلی صفحه -->
     <main class="container mx-auto px-4 py-8">
-        <!-- بخش نمونه‌کارها -->
-        <section id="portfolio" class="mb-12">
-            <h2 class="text-2xl font-bold text-blue-600 mb-6">نمونه‌کارها</h2>
+        <!-- بخش مهارت‌ها -->
+        <section id="skills" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6">مهارت‌ها</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- کارت نمونه‌کار ۱ -->
-                <div class="rounded-lg shadow-md hover:scale-105 transition-all overflow-hidden">
-                    <img src="https://source.unsplash.com/800x600/?design" alt="عکاسی محصول توسط سینا زارع" class="w-full h-48 object-cover">
-                    <div class="p-4 bg-white">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">عکاسی محصول</h3>
-                        <p class="text-gray-600">عکاسی حرفه‌ای از محصولات توسط سینا زارع</p>
-                    </div>
+                <!-- مهارت ۱ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">🎨 طراحی گرافیک</h3>
+                    <p class="text-gray-600">طراحی لوگو، بنر، پوستر و سایر عناصر گرافیکی با بالاترین کیفیت.</p>
                 </div>
-                <!-- کارت نمونه‌کار ۲ -->
-                <div class="rounded-lg shadow-md hover:scale-105 transition-all overflow-hidden">
-                    <img src="https://source.unsplash.com/800x600/?technology" alt="مشاوره دیجیتال توسط سینا زارع" class="w-full h-48 object-cover">
-                    <div class="p-4 bg-white">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">مشاوره دیجیتال</h3>
-                        <p class="text-gray-600">مشاوره در زمینه حضور آنلاین توسط سینا زارع</p>
-                    </div>
+                <!-- مهارت ۲ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">💻 توسعه وب</h3>
+                    <p class="text-gray-600">طراحی و توسعه وب‌سایت‌های مدرن و واکنش‌گرا با استفاده از آخرین تکنولوژی‌ها.</p>
                 </div>
-                <!-- کارت نمونه‌کار ۳ -->
-                <div class="rounded-lg shadow-md hover:scale-105 transition-all overflow-hidden">
-                    <img src="https://source.unsplash.com/800x600/?art" alt="آموزش طراحی توسط سینا زارع" class="w-full h-48 object-cover">
-                    <div class="p-4 bg-white">
-                        <h3 class="text-xl font-semibold text-blue-600 mb-2">آموزش طراحی</h3>
-                        <p class="text-gray-600">دوره‌های آموزشی طراحی گرافیک توسط سینا زارع</p>
-                    </div>
+                <!-- مهارت ۳ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">📱 طراحی رابط کاربری (UI/UX)</h3>
+                    <p class="text-gray-600">طراحی رابط کاربری جذاب و کاربرپسند برای وب و موبایل.</p>
                 </div>
             </div>
         </section>
-        
+
+        <!-- بخش نظرات مشتریان -->
+        <section id="testimonials" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6">نظرات مشتریان</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- نظر ۱ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://source.unsplash.com/100x100/?portrait,man" alt="عکس مشتری" class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <p class="text-gray-600 text-center">"سینا زارع یک گرافیست و برنامه‌نویس فوق‌العاده است. کارش را با دقت و خلاقیت انجام می‌دهد."</p>
+                    <p class="text-gray-800 font-semibold mt-2 text-center">- علی محمدی</p>
+                </div>
+                <!-- نظر ۲ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://source.unsplash.com/100x100/?portrait,woman" alt="عکس مشتری" class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <p class="text-gray-600 text-center">"با سینا زارع همکاری کردم و از نتیجه کار بسیار راضی هستم. توصیه می‌کنم."</p>
+                    <p class="text-gray-800 font-semibold mt-2 text-center">- مریم رضایی</p>
+                </div>
+                <!-- نظر ۳ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://source.unsplash.com/100x100/?portrait,man" alt="عکس مشتری" class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <p class="text-gray-600 text-center">"طراحی‌های سینا زارع بسیار خلاقانه و کاربردی هستند. حتماً با او کار کنید."</p>
+                    <p class="text-gray-800 font-semibold mt-2 text-center">- حسین علیزاده</p>
+                </div>
+                <!-- نظر ۴ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://source.unsplash.com/100x100/?portrait,woman" alt="عکس مشتری" class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <p class="text-gray-600 text-center">"سینا زارع بسیار حرفه‌ای و با تجربه است. کارش را به موقع و با کیفیت بالا تحویل داد."</p>
+                    <p class="text-gray-800 font-semibold mt-2 text-center">- فاطمه حسینی</p>
+                </div>
+                <!-- نظر ۵ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://source.unsplash.com/100x100/?portrait,man" alt="عکس مشتری" class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <p class="text-gray-600 text-center">"همکاری با سینا زارع بسیار لذت‌بخش بود. او به تمام جزئیات توجه می‌کند."</p>
+                    <p class="text-gray-800 font-semibold mt-2 text-center">- محسن کریمی</p>
+                </div>
+                <!-- نظر ۶ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://source.unsplash.com/100x100/?portrait,woman" alt="عکس مشتری" class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <p class="text-gray-600 text-center">"سینا زارع بهترین انتخاب برای طراحی و توسعه وب‌سایت‌های مدرن است."</p>
+                    <p class="text-gray-800 font-semibold mt-2 text-center">- زهرا احمدی</p>
+                </div>
+            </div>
+        </section>
+
         <!-- بخش ویدئوها -->
-        <section id="videos" class="mb-12">
+        <section id="videos" class="mb-12" data-aos="fade-up">
             <h2 class="text-2xl font-bold text-blue-600 mb-6">ویدئوها</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- ویدئو ۱ -->
@@ -83,21 +120,60 @@
             </div>
         </section>
 
-        <!-- بخش اطلاعات تماس -->
-        <section id="contact-info" class="mb-12">
-            <h2 class="text-2xl font-bold text-blue-600 mb-6">اطلاعات تماس</h2>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <p class="text-gray-600 mb-4">برای تماس با من می‌توانید از طریق شماره تلفن یا پیج اینستاگرام اقدام کنید:</p>
-                <ul class="space-y-2">
-                    <li class="flex items-center">
-                        <span class="ml-2">📞 شماره تماس:</span>
-                        <a href="tel:09964508265" class="text-blue-600 hover:text-blue-800">09964508265</a>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="ml-2">📸 پیج اینستاگرام:</span>
-                        <a href="https://instagram.com/cna.za" target="_blank" class="text-blue-600 hover:text-blue-800">cna.za</a>
-                    </li>
-                </ul>
+        <!-- بخش وبلاگ -->
+        <section id="blog" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6">وبلاگ</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- پست ۱ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://source.unsplash.com/800x600/?design" alt="تصویر پست وبلاگ" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">🎨 طراحی گرافیک</h3>
+                    <p class="text-gray-600">طراحی لوگو، بنر، پوستر و سایر عناصر گرافیکی با بالاترین کیفیت.</p>
+                </div>
+                <!-- پست ۲ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://source.unsplash.com/800x600/?technology" alt="تصویر پست وبلاگ" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">💻 توسعه وب</h3>
+                    <p class="text-gray-600">طراحی و توسعه وب‌سایت‌های مدرن و واکنش‌گرا با استفاده از آخرین تکنولوژی‌ها.</p>
+                </div>
+                <!-- پست ۳ -->
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://source.unsplash.com/800x600/?art" alt="تصویر پست وبلاگ" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">📱 طراحی رابط کاربری (UI/UX)</h3>
+                    <p class="text-gray-600">طراحی رابط کاربری جذاب و کاربرپسند برای وب و موبایل.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش دکمه‌های اشتراک‌گذاری در شبکه‌های اجتماعی -->
+        <section id="social-share" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6">اشتراک‌گذاری در شبکه‌های اجتماعی</h2>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="bg-blue-600 text-white p-3 rounded-full hover:bg-blue-700 transition-colors">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="bg-blue-400 text-white p-3 rounded-full hover:bg-blue-500 transition-colors">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="bg-pink-600 text-white p-3 rounded-full hover:bg-pink-700 transition-colors">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="bg-blue-800 text-white p-3 rounded-full hover:bg-blue-900 transition-colors">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- بخش درباره من (منتقل شده به پایین‌ترین قسمت) -->
+        <section id="about" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6">درباره من</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
+                <img src="https://via.placeholder.com/150" alt="عکس سینا زارع" class="w-32 h-32 rounded-full mb-4 md:mb-0 md:mr-6">
+                <div>
+                    <p class="text-gray-600">
+                        من سینا زارع، گرافیست و برنامه‌نویس با بیش از ۵ سال تجربه در زمینه طراحی گرافیک و توسعه وب هستم. تخصص من در ایجاد طرح‌های خلاقانه و کاربردی است که هم زیبایی و هم عملکرد را به ارمغان می‌آورند. من عاشق حل مشکلات طراحی و ایجاد تجربه‌های کاربری بی‌نظیر هستم.
+                    </p>
+                </div>
             </div>
         </section>
     </main>
@@ -106,5 +182,16 @@
     <footer class="bg-blue-600 text-white py-4 text-center shadow-lg">
         <p>تمامی حقوق محفوظ است. © 2024 | طراحی شده توسط سینا زارع</p>
     </footer>
+
+    <!-- دکمه تماس شناور -->
+    <a href="tel:09964508265" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
+        📞 تماس با من
+    </a>
+
+    <!-- اسکریپت AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
