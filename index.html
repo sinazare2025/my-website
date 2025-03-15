@@ -235,7 +235,7 @@
 
         // ارسال اطلاعات به سرور
         document.getElementById('contact-form-submit').addEventListener('submit', function(event) {
-            event.preventDefault();
+            event.preventDefault(); // جلوگیری از باز شدن صفحه جدید
 
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
