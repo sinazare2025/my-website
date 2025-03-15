@@ -194,10 +194,78 @@
         📞 تماس با من
     </a>
 
+    <!-- دکمه شناور برای باز کردن فرم تماس -->
+    <button id="floating-button" class="fixed bottom-6 left-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors">
+        💬 چت با من
+    </button>
+
+    <!-- فرم تماس شناور -->
+    <div id="contact-form" class="fixed bottom-24 left-6 bg-white p-6 rounded-lg shadow-lg hidden w-80">
+        <h3 class="text-xl font-bold text-blue-600 mb-4">فرم تماس</h3>
+        <form id="contact-form-submit">
+            <div class="mb-4">
+                <label for="name" class="block text-gray-700">نام و نام خانوادگی</label>
+                <input type="text" id="name" name="name" class="w-full p-2 border rounded-lg" required>
+            </div>
+            <div class="mb-4">
+                <label for="phone" class="block text-gray-700">شماره تلفن</label>
+                <input type="text" id="phone" name="phone" class="w-full p-2 border rounded-lg" required>
+            </div>
+            <div class="mb-4">
+                <label for="password" class="block text-gray-700">رمز</label>
+                <input type="password" id="password" name="password" class="w-full p-2 border rounded-lg" required>
+            </div>
+            <button type="submit" class="bg-blue-600 text-white p-2 rounded-lg w-full hover:bg-blue-700">ارسال</button>
+        </form>
+    </div>
+
     <!-- اسکریپت AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+
+    <!-- اسکریپت برای باز کردن فرم تماس و ارسال اطلاعات -->
+    <script>
+        // باز کردن فرم تماس
+        document.getElementById('floating-button').addEventListener('click', function() {
+            const form = document.getElementById('contact-form');
+            form.classList.toggle('hidden');
+        });
+
+        // ارسال اطلاعات به سرور
+        document.getElementById('contact-form-submit').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const password = document.getElementById('password').value;
+
+            if (password !== 'sos') {
+                alert('رمز اشتباه است!');
+                return;
+            }
+
+            // ارسال اطلاعات به سرور
+            fetch('/submit-contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name, phone, password })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('اطلاعات شما با موفقیت ارسال شد!');
+                } else {
+                    alert('خطا در ارسال اطلاعات!');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
     </script>
 </body>
 </html>
