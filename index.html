@@ -9,6 +9,7 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     
     <style>
         /* حالت شب */
@@ -84,6 +85,50 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
         }
+        
+        /* استایل اسلایدر */
+        .swiper {
+            width: 100%;
+            padding: 20px 0;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: auto;
+            height: auto;
+        }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: #3b82f6;
+            background-color: rgba(255,255,255,0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 20px;
+        }
+        .dark-mode .swiper-button-next, .dark-mode .swiper-button-prev {
+            background-color: rgba(45,55,72,0.8);
+        }
+        .portfolio-description {
+            background-color: rgba(59, 130, 246, 0.1);
+            padding: 10px;
+            border-radius: 0.5rem;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -130,65 +175,95 @@
             </div>
         </section>
 
-        <!-- بخش نمونه کارها -->
+        <!-- بخش نمونه کارها - طراحی گرافیک -->
         <section id="portfolio" class="mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-blue-600 mb-6">نمونه کارها</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                <!-- نمونه کار 1 -->
-                <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/fd/38/b0/fd38b0aa303d594654edd93b8dfea991.jpg" alt="نمونه کار گرافیکی 1" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی لوگو حرفه‌ای</h3>
-                    <p class="text-gray-600 text-sm">طراحی لوگو برای برندهای معتبر با جدیدترین متدها</p>
+            <h2 class="text-2xl font-bold text-blue-600 mb-6">نمونه کارها - طراحی گرافیک</h2>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <!-- نمونه کار 1 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/cd/91/d9/cd91d99492e98bcd737c67c1872e6842.jpg" alt="طراحی تامنیل یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی تامنیل یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 2 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/0f/cc/57/0fcc57fdda2acf9cbfaae49061b50f89.jpg" alt="طراحی عکس پروفایل" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی عکس پروفایل
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 3 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/69/a5/41/69a5416a1401a01d5b2e36b5a8c0dd3e.jpg" alt="طراحی چنل آرت یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی چنل آرت یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 4 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/bc/4c/37/bc4c377378b2ed542ad7b0e987af797f.jpg" alt="طراحی تامنیل یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی تامنیل یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 5 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/53/0d/4d/530d4db4e793294a20eb0289675d386d.jpg" alt="طراحی عکس پروفایل" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی عکس پروفایل
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 6 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/59/e6/8e/59e68eba3c3555b9632e1c90ae2acba3.jpg" alt="طراحی چنل آرت یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی چنل آرت یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 7 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/3a/ce/d8/3aced8c34a898484a1daeeae7a686239.jpg" alt="طراحی تامنیل یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی تامنیل یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 8 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/c7/a2/4e/c7a24e544b427a00ea7da5bf80fcfaa2.jpg" alt="طراحی عکس پروفایل" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی عکس پروفایل
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 9 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/07/d9/5e/07d95ef06e681c377265a58ae9b76cea.jpg" alt="طراحی چنل آرت یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی چنل آرت یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 10 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/fd/38/b0/fd38b0aa303d594654edd93b8dfea991.jpg" alt="طراحی تامنیل یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-blue-600">
+                            طراحی تامنیل یوتیوب
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- نمونه کار 2 -->
-                <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/5c/6d/f4/5c6df44f73605f9db4851ec70b43f2b4.jpg" alt="نمونه کار گرافیکی 2" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی پوستر تبلیغاتی</h3>
-                    <p class="text-gray-600 text-sm">پوسترهای تبلیغاتی و رویدادی با کیفیت بالا</p>
-                </div>
-                
-                <!-- نمونه کار 3 -->
-                <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/f7/84/f1/f784f1f37d686fac0d44d08123d3dc7f.jpg" alt="نمونه کار گرافیکی 3" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی رابط کاربری موبایل</h3>
-                    <p class="text-gray-600 text-sm">رابط کاربری اپلیکیشن موبایل با UX عالی</p>
-                </div>
-                
-                <!-- نمونه کار 4 -->
-                <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/26/cd/66/26cd66a505b06fd2db6d02a17c95cc12.jpg" alt="نمونه کار گرافیکی 4" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی بنر تبلیغاتی</h3>
-                    <p class="text-gray-600 text-sm">بنرهای دیجیتال مارکتینگ جذاب</p>
-                </div>
-                
-                <!-- نمونه کار 5 -->
-                <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/a5/68/3d/a5683d666b5362ca0faef5f7de3181e1.jpg" alt="نمونه کار گرافیکی 5" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی کارت ویزیت</h3>
-                    <p class="text-gray-600 text-sm">کارت ویزیت شرکتی و شخصی</p>
-                </div>
-                
-                <!-- نمونه کار 6 -->
-                <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/aa/98/fa/aa98fa180ce3972413959e89047682d6.jpg" alt="نمونه کار گرافیکی 6" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی بروشور</h3>
-                    <p class="text-gray-600 text-sm">بروشورهای تبلیغاتی حرفه‌ای</p>
-                </div>
-                
-                <!-- نمونه کار 7 -->
-                <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/02/ca/7f/02ca7f01efa1c0add2595928a8997ff5.jpg" alt="نمونه کار گرافیکی 7" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی اینفوگرافیک</h3>
-                    <p class="text-gray-600 text-sm">اینفوگرافیک‌های اطلاع رسانی</p>
-                </div>
-                
-                <!-- نمونه کار 8 -->
-                <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/04/66/72/046672af7aa0a45722e914be7616570d.jpg" alt="نمونه کار گرافیکی 8" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی پست اینستاگرام</h3>
-                    <p class="text-gray-600 text-sm">پست‌های شبکه‌های اجتماعی جذاب</p>
-                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </section>
 
@@ -218,9 +293,9 @@
         <section id="videos" class="mb-12" data-aos="fade-up">
             <h2 class="text-2xl font-bold text-blue-600 mb-6">ویدئوها</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <iframe width="100%" height="200" src="https://www.youtube.com/embed/agSwvQ2b2c4" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
-                <iframe width="100%" height="200" src="https://www.youtube.com/embed/cUPb4GNNtXk" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
-                <iframe width="100%" height="200" src="https://www.youtube.com/embed/PcYF-ZvemX0" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/C9MiG9OrktA" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/qEQs7cYsdsQ" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/Ya132VVMwLg" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
             </div>
         </section>
 
@@ -292,6 +367,8 @@
 
     <!-- اسکریپت AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- اسکریپت Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         AOS.init();
         
@@ -370,6 +447,39 @@
             document.body.classList.remove('dark-mode');
             darkModeIcon.textContent = '🌙';
         }
+        
+        // Initialize Swiper
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                },
+            },
+        });
     </script>
 </body>
 </html>
