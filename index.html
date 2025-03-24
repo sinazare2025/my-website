@@ -52,9 +52,18 @@
             margin-left: 10px;
             font-weight: bold;
         }
+        #mute-btn {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
+    <!-- عنصر صوتی برای پخش موزیک -->
+    <audio id="bg-music" autoplay loop>
+        <source src="https://dl.jelvehmusic.ir/jsv/1/Amir%20Tataloo%20-%20Velesh%20Kon.mp3" type="audio/mpeg">
+        مرورگر شما از پخش خودکار صدا پشتیبانی نمی‌کند.
+    </audio>
+
     <!-- هدر صفحه با لوگوی سمت راست -->
     <header class="bg-blue-600 text-white py-4 shadow-lg">
         <div class="container mx-auto flex items-center justify-between px-4">
@@ -242,10 +251,59 @@
         💬 چت در واتساپ
     </a>
 
+    <!-- دکمه شناور برای میوت کردن صدا -->
+    <button id="mute-btn" class="fixed bottom-24 right-6 bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-colors">
+        🔇 میوت
+    </button>
+
     <!-- اسکریپت AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
+        
+        // کنترل پخش موزیک و دکمه میوت
+        const bgMusic = document.getElementById('bg-music');
+        const muteBtn = document.getElementById('mute-btn');
+        let isMuted = false;
+
+        // تنظیمات اولیه برای پخش خودکار (با توجه به محدودیت‌های مرورگرها)
+        document.addEventListener('DOMContentLoaded', function() {
+            // تلاش برای پخش خودکار با تاخیر
+            setTimeout(() => {
+                bgMusic.play().catch(e => {
+                    console.log('پخش خودکار صدا مسدود شده است:', e);
+                    // نمایش پیام به کاربر برای تعامل با صفحه
+                    alert('لطفاً برای شنیدن موزیک پس‌زمینه، یک بار با صفحه تعامل داشته باشید (کلیک کنید)');
+                });
+            }, 1000);
+        });
+
+        // کلیک روی دکمه میوت
+        muteBtn.addEventListener('click', function() {
+            isMuted = !isMuted;
+            
+            if(isMuted) {
+                bgMusic.pause();
+                muteBtn.innerHTML = '🔈 روشن';
+                muteBtn.classList.remove('bg-red-500');
+                muteBtn.classList.add('bg-gray-500');
+            } else {
+                bgMusic.play();
+                muteBtn.innerHTML = '🔇 میوت';
+                muteBtn.classList.remove('bg-gray-500');
+                muteBtn.classList.add('bg-red-500');
+            }
+        });
+
+        // فعال کردن پخش صدا پس از اولین تعامل کاربر
+        document.body.addEventListener('click', function firstInteraction() {
+            bgMusic.play().then(() => {
+                console.log('پخش صدا پس از تعامل کاربر فعال شد');
+            }).catch(e => {
+                console.log('خطا در پخش صدا:', e);
+            });
+            document.body.removeEventListener('click', firstInteraction);
+        });
     </script>
 </body>
 </html>
