@@ -3,24 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- عنوان صفحه (بسیار مهم برای سئو) -->
-    <title>سینا زارع | Sina Zare - گرافیست و برنامه‌نویس حرفه‌ای</title>
-    
-    <!-- متا توضیحات -->
-    <meta name="description" content="سینا زارع (Sina Zare)، گرافیست و برنامه‌نویس حرفه‌ای با سال‌ها تجربه در طراحی گرافیک و توسعه وب. مشاهده نمونه‌کارها، ویدئوها و تماس با من.">
-    
-    <!-- متا کلمات کلیدی -->
+    <title>سینا زارع | طراح گرافیک و توسعه‌دهنده وب</title>
+    <meta name="description" content="سینا زارع، گرافیست و برنامه‌نویس حرفه‌ای با سال‌ها تجربه در طراحی گرافیک و توسعه وب. مشاهده نمونه‌کارها، ویدئوها و تماس با من.">
     <meta name="keywords" content="سینا زارع, Sina Zare, گرافیست, برنامه‌نویس, طراحی گرافیک, توسعه وب, نمونه‌کار, ویدئو, تماس">
     
-    <!-- لینک به Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- لینک به AOS برای انیمیشن‌های اسکرول -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
-        /* اضافه کردن انیمیشن‌های سفارشی */
         .hover\:scale-105:hover {
             transform: scale(1.05);
             transition: transform 0.3s ease-in-out;
@@ -28,31 +18,75 @@
         .transition-all {
             transition: all 0.3s ease-in-out;
         }
-        .blog-image {
+        .portfolio-image {
             width: 100%;
-            height: 300px;
+            height: auto;
+            max-height: 500px;
             object-fit: contain;
             border-radius: 0.5rem;
         }
-        .portfolio-image {
-            width: 100%;
-            height: 200px;
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
             object-fit: cover;
-            border-radius: 0.5rem;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        .logo {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: #3b82f6;
+            display: flex;
+            align-items: center;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #3b82f6;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <!-- هدر صفحه -->
-    <header class="bg-blue-600 text-white py-6 text-center shadow-lg">
-        <div class="container mx-auto flex items-center justify-center">
-            <img src="https://i.pinimg.com/280x280_RS/45/29/95/452995766877f516ff801129df207da8.jpg" alt="عکس سینا زارع" class="w-20 h-20 rounded-full mr-4 border-2 border-white">
-            <h1 class="text-3xl font-bold">سینا زارع | گرافیست و برنامه‌نویس</h1>
+    <!-- هدر صفحه با لوگوی سمت راست -->
+    <header class="bg-blue-600 text-white py-4 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between px-4">
+            <p class="text-white">طراح گرافیک و توسعه‌دهنده وب</p>
+            <div class="logo flex-row-reverse">
+                <span>سینا زارع</span>
+                <div class="logo-icon">س</div>
+            </div>
         </div>
     </header>
     
     <!-- محتوای اصلی صفحه -->
     <main class="container mx-auto px-4 py-8">
+        <!-- بخش مهارت‌ها -->
+        <section id="skills" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-blue-600 mb-6">مهارت‌ها</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">🎨 طراحی گرافیک</h3>
+                    <p class="text-gray-600">طراحی لوگو، بنر، پوستر و سایر عناصر گرافیکی با بالاترین کیفیت.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">💻 توسعه وب</h3>
+                    <p class="text-gray-600">طراحی و توسعه وب‌سایت‌های مدرن و واکنش‌گرا با استفاده از آخرین تکنولوژی‌ها.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold text-blue-600 mb-2">📱 طراحی رابط کاربری (UI/UX)</h3>
+                    <p class="text-gray-600">طراحی رابط کاربری جذاب و کاربرپسند برای وب و موبایل.</p>
+                </div>
+            </div>
+        </section>
+
         <!-- بخش نمونه کارها -->
         <section id="portfolio" class="mb-12" data-aos="fade-up">
             <h2 class="text-2xl font-bold text-blue-600 mb-6">نمونه کارها</h2>
@@ -60,29 +94,29 @@
                 <!-- نمونه کار 1 -->
                 <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
                     <img src="https://i.pinimg.com/736x/fd/38/b0/fd38b0aa303d594654edd93b8dfea991.jpg" alt="نمونه کار گرافیکی 1" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی لوگو</h3>
-                    <p class="text-gray-600 text-sm">طراحی لوگو برای برندهای معتبر</p>
+                    <h3 class="text-lg font-semibold text-blue-600">طراحی لوگو حرفه‌ای</h3>
+                    <p class="text-gray-600 text-sm">طراحی لوگو برای برندهای معتبر با جدیدترین متدها</p>
                 </div>
                 
                 <!-- نمونه کار 2 -->
                 <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
                     <img src="https://i.pinimg.com/736x/5c/6d/f4/5c6df44f73605f9db4851ec70b43f2b4.jpg" alt="نمونه کار گرافیکی 2" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی پوستر</h3>
-                    <p class="text-gray-600 text-sm">پوسترهای تبلیغاتی و رویدادی</p>
+                    <h3 class="text-lg font-semibold text-blue-600">طراحی پوستر تبلیغاتی</h3>
+                    <p class="text-gray-600 text-sm">پوسترهای تبلیغاتی و رویدادی با کیفیت بالا</p>
                 </div>
                 
                 <!-- نمونه کار 3 -->
                 <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
                     <img src="https://i.pinimg.com/736x/f7/84/f1/f784f1f37d686fac0d44d08123d3dc7f.jpg" alt="نمونه کار گرافیکی 3" class="portfolio-image mb-3">
-                    <h3 class="text-lg font-semibold text-blue-600">طراحی رابط کاربری</h3>
-                    <p class="text-gray-600 text-sm">رابط کاربری اپلیکیشن موبایل</p>
+                    <h3 class="text-lg font-semibold text-blue-600">طراحی رابط کاربری موبایل</h3>
+                    <p class="text-gray-600 text-sm">رابط کاربری اپلیکیشن موبایل با UX عالی</p>
                 </div>
                 
                 <!-- نمونه کار 4 -->
                 <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
                     <img src="https://i.pinimg.com/736x/26/cd/66/26cd66a505b06fd2db6d02a17c95cc12.jpg" alt="نمونه کار گرافیکی 4" class="portfolio-image mb-3">
                     <h3 class="text-lg font-semibold text-blue-600">طراحی بنر تبلیغاتی</h3>
-                    <p class="text-gray-600 text-sm">بنرهای دیجیتال مارکتینگ</p>
+                    <p class="text-gray-600 text-sm">بنرهای دیجیتال مارکتینگ جذاب</p>
                 </div>
                 
                 <!-- نمونه کار 5 -->
@@ -96,7 +130,7 @@
                 <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
                     <img src="https://i.pinimg.com/736x/aa/98/fa/aa98fa180ce3972413959e89047682d6.jpg" alt="نمونه کار گرافیکی 6" class="portfolio-image mb-3">
                     <h3 class="text-lg font-semibold text-blue-600">طراحی بروشور</h3>
-                    <p class="text-gray-600 text-sm">بروشورهای تبلیغاتی</p>
+                    <p class="text-gray-600 text-sm">بروشورهای تبلیغاتی حرفه‌ای</p>
                 </div>
                 
                 <!-- نمونه کار 7 -->
@@ -110,29 +144,7 @@
                 <div class="bg-white p-4 rounded-lg shadow-md hover:scale-105 transition-all">
                     <img src="https://i.pinimg.com/736x/04/66/72/046672af7aa0a45722e914be7616570d.jpg" alt="نمونه کار گرافیکی 8" class="portfolio-image mb-3">
                     <h3 class="text-lg font-semibold text-blue-600">طراحی پست اینستاگرام</h3>
-                    <p class="text-gray-600 text-sm">پست‌های شبکه‌های اجتماعی</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- بخش مهارت‌ها -->
-        <section id="skills" class="mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-blue-600 mb-6">مهارت‌ها</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- مهارت ۱ -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">🎨 طراحی گرافیک</h3>
-                    <p class="text-gray-600">طراحی لوگو، بنر، پوستر و سایر عناصر گرافیکی با بالاترین کیفیت.</p>
-                </div>
-                <!-- مهارت ۲ -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">💻 توسعه وب</h3>
-                    <p class="text-gray-600">طراحی و توسعه وب‌سایت‌های مدرن و واکنش‌گرا با استفاده از آخرین تکنولوژی‌ها.</p>
-                </div>
-                <!-- مهارت ۳ -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">📱 طراحی رابط کاربری (UI/UX)</h3>
-                    <p class="text-gray-600">طراحی رابط کاربری جذاب و کاربرپسند برای وب و موبایل.</p>
+                    <p class="text-gray-600 text-sm">پست‌های شبکه‌های اجتماعی جذاب</p>
                 </div>
             </div>
         </section>
@@ -141,21 +153,18 @@
         <section id="testimonials" class="mb-12" data-aos="fade-up">
             <h2 class="text-2xl font-bold text-blue-600 mb-6">نظرات مشتریان</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- نظر ۱ -->
                 <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/ce/d4/4a/ced44a15c6f187b76d6479a03bdd773f.jpg" alt="عکس مشتری" class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <img src="https://i.pinimg.com/736x/ce/d4/4a/ced44a15c6f187b76d6479a03bdd773f.jpg" alt="عکس مشتری" class="testimonial-img mb-4">
                     <p class="text-gray-600 text-center">"سینا زارع یک گرافیست و برنامه‌نویس فوق‌العاده است. کارش را با دقت و خلاقیت انجام می‌دهد."</p>
                     <p class="text-gray-800 font-semibold mt-2 text-center">- علی محمدی</p>
                 </div>
-                <!-- نظر ۲ -->
                 <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/18/c2/96/18c29680423dc8ec13e290b7bd9917a5.jpg" alt="عکس مشتری" class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <img src="https://i.pinimg.com/736x/18/c2/96/18c29680423dc8ec13e290b7bd9917a5.jpg" alt="عکس مشتری" class="testimonial-img mb-4">
                     <p class="text-gray-600 text-center">"با سینا زارع همکاری کردم و از نتیجه کار بسیار راضی هستم. توصیه می‌کنم."</p>
                     <p class="text-gray-800 font-semibold mt-2 text-center">- مریم رضایی</p>
                 </div>
-                <!-- نظر ۳ -->
                 <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://i.pinimg.com/736x/fe/a4/56/fea4568cdabdfb5c3ade0e7fe435858d.jpg" alt="عکس مشتری" class="w-16 h-16 rounded-full mx-auto mb-4">
+                    <img src="https://i.pinimg.com/736x/fe/a4/56/fea4568cdabdfb5c3ade0e7fe435858d.jpg" alt="عکس مشتری" class="testimonial-img mb-4">
                     <p class="text-gray-600 text-center">"طراحی‌های سینا زارع بسیار خلاقانه و کاربردی هستند. حتماً با او کار کنید."</p>
                     <p class="text-gray-800 font-semibold mt-2 text-center">- حسین علیزاده</p>
                 </div>
@@ -166,40 +175,9 @@
         <section id="videos" class="mb-12" data-aos="fade-up">
             <h2 class="text-2xl font-bold text-blue-600 mb-6">ویدئوها</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- ویدئو ۱ -->
                 <iframe width="100%" height="200" src="https://www.youtube.com/embed/agSwvQ2b2c4" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
-                <!-- ویدئو ۲ -->
                 <iframe width="100%" height="200" src="https://www.youtube.com/embed/cUPb4GNNtXk" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
-                <!-- ویدئو ۳ -->
                 <iframe width="100%" height="200" src="https://www.youtube.com/embed/PcYF-ZvemX0" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
-            </div>
-        </section>
-
-        <!-- بخش وبلاگ -->
-        <section id="blog" class="mb-12" data-aos="fade-up">
-            <h2 class="text-2xl font-bold text-blue-600 mb-6">وبلاگ</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- پست ۱ -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=400&h=300&fit=crop" alt="تصویر پست وبلاگ" class="blog-image">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2 mt-4">اصول طراحی لوگو حرفه‌ای</h3>
-                    <p class="text-gray-600">راهنمای جامع برای طراحی لوگوهای ماندگار و تاثیرگذار برای برندها.</p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 inline-block mt-2">ادامه مطلب →</a>
-                </div>
-                <!-- پست ۲ -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop" alt="تصویر پست وبلاگ" class="blog-image">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2 mt-4">روند طراحی وب سایت مدرن</h3>
-                    <p class="text-gray-600">مراحل کامل طراحی و توسعه یک وبسایت حرفه‌ای از صفر تا صد.</p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 inline-block mt-2">ادامه مطلب →</a>
-                </div>
-                <!-- پست ۳ -->
-                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
-                    <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=400&h=300&fit=crop" alt="تصویر پست وبلاگ" class="blog-image">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2 mt-4">اصول UI/UX در طراحی اپلیکیشن</h3>
-                    <p class="text-gray-600">راهکارهای طراحی رابط کاربری جذاب و تجربه کاربری عالی برای اپلیکیشن‌ها.</p>
-                    <a href="#" class="text-blue-600 hover:text-blue-800 inline-block mt-2">ادامه مطلب →</a>
-                </div>
             </div>
         </section>
 
@@ -207,15 +185,19 @@
         <section id="contact-info" class="mb-12" data-aos="fade-up">
             <h2 class="text-2xl font-bold text-blue-600 mb-6">اطلاعات تماس</h2>
             <div class="bg-white p-6 rounded-lg shadow-md">
-                <p class="text-gray-600 mb-4">برای تماس با من می‌توانید از طریق شماره تلفن یا پیج اینستاگرام اقدام کنید:</p>
+                <p class="text-gray-600 mb-4">برای تماس با من می‌توانید از طریق روش‌های زیر اقدام کنید:</p>
                 <ul class="space-y-2">
                     <li class="flex items-center">
                         <span class="ml-2">📞 شماره تماس:</span>
-                        <a href="tel:09964508265" class="text-blue-600 hover:text-blue-800">09964508265</a>
+                        <a href="tel:+989964508265" class="text-blue-600 hover:text-blue-800">+98 996 450 8265</a>
                     </li>
                     <li class="flex items-center">
                         <span class="ml-2">📸 پیج اینستاگرام:</span>
                         <a href="https://www.instagram.com/cna.za/?utm_source=qr&r=nametag" target="_blank" class="text-blue-600 hover:text-blue-800">cna.za</a>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="ml-2">📱 واتساپ:</span>
+                        <a href="https://wa.me/989964508265" target="_blank" class="text-blue-600 hover:text-blue-800">چت در واتساپ</a>
                     </li>
                 </ul>
             </div>
@@ -230,6 +212,9 @@
                     <p class="text-gray-600">
                         من سینا زارع، گرافیست و برنامه‌نویس با بیش از ۵ سال تجربه در زمینه طراحی گرافیک و توسعه وب هستم. تخصص من در ایجاد طرح‌های خلاقانه و کاربردی است که هم زیبایی و هم عملکرد را به ارمغان می‌آورند. من عاشق حل مشکلات طراحی و ایجاد تجربه‌های کاربری بی‌نظیر هستم.
                     </p>
+                    <p class="text-gray-600 mt-4">
+                        در طول این سال‌ها با برندها و شرکت‌های مختلفی همکاری داشته‌ام و پروژه‌های متعددی را با موفقیت به پایان رسانده‌ام. هدف من ارائه کار با کیفیت و رضایت کامل مشتری است.
+                    </p>
                 </div>
             </div>
         </section>
@@ -237,90 +222,30 @@
 
     <!-- فوتر صفحه -->
     <footer class="bg-blue-600 text-white py-4 text-center shadow-lg">
-        <p>تمامی حقوق محفوظ است. © 2024 | طراحی شده توسط سینا زارع</p>
+        <div class="container mx-auto">
+            <p>تمامی حقوق محفوظ است. © 2024 | طراحی شده توسط سینا زارع</p>
+            <div class="flex justify-center mt-2 space-x-4">
+                <a href="https://www.instagram.com/cna.za/?utm_source=qr&r=nametag" target="_blank" class="text-white hover:text-gray-200">اینستاگرام</a>
+                <a href="https://wa.me/989964508265" target="_blank" class="text-white hover:text-gray-200">واتساپ</a>
+                <a href="tel:+989964508265" class="text-white hover:text-gray-200">تماس تلفنی</a>
+            </div>
+        </div>
     </footer>
 
     <!-- دکمه تماس شناور -->
-    <a href="tel:09964508265" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
+    <a href="tel:+989964508265" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors">
         📞 تماس با من
     </a>
 
-    <!-- دکمه شناور برای باز کردن فرم تماس -->
-    <button id="floating-button" class="fixed bottom-6 left-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors">
-        💬 چت با من
-    </button>
-
-    <!-- فرم تماس شناور -->
-    <div id="contact-form" class="fixed bottom-24 left-6 bg-white p-6 rounded-lg shadow-lg hidden w-80">
-        <h3 class="text-xl font-bold text-blue-600 mb-4">فرم تماس</h3>
-        <form id="contact-form-submit">
-            <div class="mb-4">
-                <label for="name" class="block text-gray-700">نام و نام خانوادگی</label>
-                <input type="text" id="name" name="name" class="w-full p-2 border rounded-lg" required>
-            </div>
-            <div class="mb-4">
-                <label for="phone" class="block text-gray-700">شماره تلفن</label>
-                <input type="text" id="phone" name="phone" class="w-full p-2 border rounded-lg" required>
-            </div>
-            <div class="mb-4">
-                <label for="message" class="block text-gray-700">پیام شما</label>
-                <textarea id="message" name="message" class="w-full p-2 border rounded-lg" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="bg-blue-600 text-white p-2 rounded-lg w-full hover:bg-blue-700">ارسال</button>
-        </form>
-    </div>
+    <!-- دکمه شناور برای واتساپ -->
+    <a href="https://wa.me/989964508265" target="_blank" class="fixed bottom-6 left-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors">
+        💬 چت در واتساپ
+    </a>
 
     <!-- اسکریپت AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
-    </script>
-
-    <!-- اسکریپت برای باز کردن فرم تماس و ارسال اطلاعات -->
-    <script>
-        // باز کردن فرم تماس
-        document.getElementById('floating-button').addEventListener('click', function() {
-            const form = document.getElementById('contact-form');
-            form.classList.toggle('hidden');
-        });
-
-        // ارسال اطلاعات به سرور
-        document.getElementById('contact-form-submit').addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const message = document.getElementById('message').value;
-
-            // اعتبارسنجی ساده
-            if(!name || !phone || !message) {
-                alert('لطفاً تمام فیلدها را پر کنید!');
-                return;
-            }
-
-            // ارسال اطلاعات به سرور
-            fetch('/submit-contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ name, phone, message })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('پیام شما با موفقیت ارسال شد!');
-                    document.getElementById('contact-form').classList.add('hidden');
-                    document.getElementById('contact-form-submit').reset();
-                } else {
-                    alert('خطا در ارسال پیام! لطفاً بعداً تلاش کنید.');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('خطا در ارتباط با سرور!');
-            });
-        });
     </script>
 </body>
 </html>
