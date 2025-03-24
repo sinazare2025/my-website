@@ -11,6 +11,28 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
     <style>
+        /* حالت شب */
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-white {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark-mode .text-gray-600 {
+            color: #cbd5e0;
+        }
+        .dark-mode .text-gray-800 {
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-blue-600 {
+            background-color: #2b6cb0;
+        }
+        .dark-mode .bg-gray-50 {
+            background-color: #2d3748;
+        }
+        
         .hover\:scale-105:hover {
             transform: scale(1.05);
             transition: transform 0.3s ease-in-out;
@@ -52,10 +74,9 @@
             margin-left: 10px;
             font-weight: bold;
         }
-        #mute-btn {
+        #mute-btn, #dark-mode-toggle {
             transition: all 0.3s ease;
         }
-        /* اضافه کردن انیمیشن برای دکمه‌های شناور */
         .floating-btn {
             animation: float 3s ease-in-out infinite;
         }
@@ -66,7 +87,7 @@
     </style>
 </head>
 <body class="bg-gray-50 font-sans">
-    <!-- عنصر صوتی برای پخش موزیک (با آهنگ جدید Darvaghe) -->
+    <!-- عنصر صوتی برای پخش موزیک -->
     <audio id="bg-music" autoplay loop>
         <source src="https://dl.jelvehmusic.ir/jsv/1/Amir%20Tataloo%20-%20Darvaghe.mp3" type="audio/mpeg">
         مرورگر شما از پخش خودکار صدا پشتیبانی نمی‌کند.
@@ -76,9 +97,14 @@
     <header class="bg-blue-600 text-white py-4 shadow-lg">
         <div class="container mx-auto flex items-center justify-between px-4">
             <p class="text-white">طراح گرافیک و توسعه‌دهنده وب</p>
-            <div class="logo flex-row-reverse">
-                <span>سینا زارع</span>
-                <div class="logo-icon">س</div>
+            <div class="flex items-center">
+                <button id="dark-mode-toggle" class="ml-4 bg-white bg-opacity-20 p-2 rounded-full">
+                    <span id="dark-mode-icon">🌙</span>
+                </button>
+                <div class="logo flex-row-reverse">
+                    <span>سینا زارع</span>
+                    <div class="logo-icon">س</div>
+                </div>
             </div>
         </div>
     </header>
@@ -312,6 +338,38 @@
             });
             document.body.removeEventListener('click', firstInteraction);
         });
+        
+        // حالت شب/روز
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeIcon = document.getElementById('dark-mode-icon');
+        let isDarkMode = false;
+        
+        // بررسی حالت ذخیره شده در localStorage
+        if (localStorage.getItem('darkMode') === 'enabled') {
+            enableDarkMode();
+        }
+        
+        darkModeToggle.addEventListener('click', function() {
+            isDarkMode = !isDarkMode;
+            
+            if (isDarkMode) {
+                enableDarkMode();
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                disableDarkMode();
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+        
+        function enableDarkMode() {
+            document.body.classList.add('dark-mode');
+            darkModeIcon.textContent = '☀️';
+        }
+        
+        function disableDarkMode() {
+            document.body.classList.remove('dark-mode');
+            darkModeIcon.textContent = '🌙';
+        }
     </script>
 </body>
 </html>
