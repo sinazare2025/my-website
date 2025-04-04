@@ -525,25 +525,41 @@
 
         registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            const formData = new FormData(registerForm);
+            
+            // غیرفعال کردن دکمه ثبت نام
+            const submitBtn = registerForm.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'در حال ثبت نام...';
             
             try {
-                const response = await fetch('telegram_bot.php', {
+                const formData = new FormData(registerForm);
+                const data = Object.fromEntries(formData);
+                
+                const response = await fetch('/.netlify/functions/register', {
                     method: 'POST',
-                    body: formData
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
                 });
                 
                 const result = await response.json();
                 
                 if (result.success) {
-                    alert('ثبت نام با موفقیت انجام شد');
-                    window.location.href = 'chat.html';
-                } else {
                     alert(result.message);
+                    if (result.redirect) {
+                        window.location.href = result.redirect;
+                    }
+                } else {
+                    alert(result.message || 'خطا در ثبت نام');
                 }
             } catch (error) {
-                alert('خطا در ثبت نام');
-                console.error(error);
+                console.error('خطا در ثبت نام:', error);
+                alert('خطا در ارتباط با سرور. لطفاً دوباره تلاش کنید.');
+            } finally {
+                // فعال کردن مجدد دکمه ثبت نام
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'ثبت نام';
             }
         });
     </script>

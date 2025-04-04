@@ -1,0 +1,15 @@
+{
+  "name": "my-website",
+  "version": "1.0.0",
+  "description": "وبسایت شخصی سینا زارع",
+  "main": "index.html",
+  "scripts": {
+    "start": "netlify dev"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "netlify-cli": "^12.0.0"
+  }
+} 
