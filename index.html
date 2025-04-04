@@ -138,24 +138,107 @@
         مرورگر شما از پخش خودکار صدا پشتیبانی نمی‌کند.
     </audio>
 
-    <!-- هدر صفحه با لوگوی سمت راست -->
-    <header class="bg-blue-600 text-white py-4 shadow-lg">
-        <div class="container mx-auto flex items-center justify-between px-4">
-            <p class="text-white">طراح گرافیک و توسعه‌دهنده وب</p>
-            <div class="flex items-center">
-                <button id="dark-mode-toggle" class="ml-4 bg-white bg-opacity-20 p-2 rounded-full">
-                    <span id="dark-mode-icon">🌙</span>
-                </button>
-                <div class="logo flex-row-reverse">
-                    <span>سینا زارع</span>
-                    <div class="logo-icon">س</div>
+    <!-- هدر جدید با منوی ناوبری -->
+    <header class="bg-white dark:bg-gray-800 shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- لوگو -->
+                <div class="flex items-center">
+                    <div class="logo flex-row-reverse">
+                        <span class="text-blue-600 dark:text-blue-400">سینا زارع</span>
+                        <div class="logo-icon">س</div>
+                    </div>
                 </div>
+
+                <!-- منوی اصلی -->
+                <nav class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">مهارت‌ها</a>
+                    <a href="#portfolio" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">نمونه کارها</a>
+                    <a href="#testimonials" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">نظرات</a>
+                    <a href="#videos" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">ویدئوها</a>
+                    <a href="#contact-info" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">تماس</a>
+                </nav>
+
+                <!-- دکمه‌های سمت چپ -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <span id="dark-mode-icon">🌙</span>
+                    </button>
+                    <a href="tel:+989964508265" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors hidden md:block">تماس با من</a>
+                </div>
+
+                <!-- دکمه منو موبایل -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- منوی موبایل -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#skills" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">مهارت‌ها</a>
+                <a href="#portfolio" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">نمونه کارها</a>
+                <a href="#testimonials" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">نظرات</a>
+                <a href="#videos" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">ویدئوها</a>
+                <a href="#contact-info" class="block text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">تماس</a>
             </div>
         </div>
     </header>
-    
+
+    <!-- فاصله‌گذار برای هدر ثابت -->
+    <div class="h-16"></div>
+
     <!-- محتوای اصلی صفحه -->
-    <main class="container mx-auto px-4 py-8">
+    <main class="container mx-auto px-4">
+        <!-- بخش قهرمان -->
+        <section class="relative h-[80vh] flex items-center justify-center mb-12 overflow-hidden">
+            <!-- پس‌زمینه متحرک -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-90"></div>
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[url('https://i.pinimg.com/originals/8c/74/0b/8c740bc13bd5a0a19c24b37c5278aa37.gif')] bg-cover bg-center opacity-20"></div>
+            </div>
+            
+            <!-- محتوای اصلی -->
+            <div class="relative z-10 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">سینا زارع</h1>
+                <p class="text-xl md:text-2xl mb-8" data-aos="fade-up" data-aos-delay="200">طراح گرافیک و توسعه‌دهنده خلاق وب</p>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 md:space-x-reverse" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#portfolio" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors">مشاهده نمونه کارها</a>
+                    <a href="#contact-info" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-blue-600 transition-colors">تماس با من</a>
+                </div>
+                
+                <!-- آمار و ارقام -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16" data-aos="fade-up" data-aos-delay="600">
+                    <div>
+                        <div class="text-4xl font-bold mb-2">+۵</div>
+                        <div class="text-sm">سال تجربه</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">+۵۰</div>
+                        <div class="text-sm">پروژه موفق</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">+۳۰</div>
+                        <div class="text-sm">مشتری راضی</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">+۱۰۰</div>
+                        <div class="text-sm">طراحی خلاقانه</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- موج متحرک پایین -->
+            <div class="absolute bottom-0 left-0 w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-full">
+                    <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </section>
+
         <!-- بخش مهارت‌ها -->
         <section id="skills" class="mb-12" data-aos="fade-up">
             <h2 class="text-2xl font-bold text-blue-600 mb-6">مهارت‌ها</h2>
@@ -350,48 +433,10 @@
         </div>
     </footer>
 
-    <!-- دکمه تماس شناور -->
-    <a href="tel:+989964508265" class="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-colors floating-btn">
-        📞 تماس با من
-    </a>
-
-    <!-- دکمه شناور برای واتساپ -->
-    <a href="https://wa.me/989964508265" target="_blank" class="fixed bottom-6 left-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-colors floating-btn">
-        💬 چت در واتساپ
-    </a>
-
     <!-- دکمه شناور برای میوت کردن صدا -->
     <button id="mute-btn" class="fixed bottom-24 right-6 bg-red-500 text-white p-4 rounded-full shadow-lg hover:bg-red-600 transition-colors floating-btn">
         🔇 بی صدا
     </button>
-
-    <!-- دکمه شناور برای ثبت نام -->
-    <button id="register-btn" class="fixed bottom-24 left-6 bg-purple-500 text-white p-4 rounded-full shadow-lg hover:bg-purple-600 transition-colors floating-btn">
-        👤 ثبت نام
-    </button>
-
-    <!-- مودال ثبت نام -->
-    <div id="register-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden">
-        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md mx-auto mt-20">
-            <h2 class="text-2xl font-bold text-blue-600 mb-4">ثبت نام</h2>
-            <form id="register-form" class="space-y-4">
-                <div>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2">نام</label>
-                    <input type="text" name="name" required class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
-                </div>
-                <div>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2">شماره تماس</label>
-                    <input type="tel" name="phone" required class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
-                </div>
-                <div>
-                    <label class="block text-gray-700 dark:text-gray-300 mb-2">رمز عبور</label>
-                    <input type="password" name="password" required class="w-full p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
-                </div>
-                <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded-lg hover:bg-blue-700">ثبت نام</button>
-                <button type="button" id="close-modal" class="w-full bg-gray-500 text-white p-2 rounded-lg hover:bg-gray-600">انصراف</button>
-            </form>
-        </div>
-    </div>
 
     <!-- اسکریپت AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -509,57 +554,41 @@
             },
         });
 
-        // مدیریت مودال ثبت نام
-        const registerBtn = document.getElementById('register-btn');
-        const registerModal = document.getElementById('register-modal');
-        const closeModal = document.getElementById('close-modal');
-        const registerForm = document.getElementById('register-form');
+        // منوی موبایل
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-        registerBtn.addEventListener('click', () => {
-            registerModal.classList.remove('hidden');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
         });
 
-        closeModal.addEventListener('click', () => {
-            registerModal.classList.add('hidden');
-        });
-
-        registerForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // غیرفعال کردن دکمه ثبت نام
-            const submitBtn = registerForm.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'در حال ثبت نام...';
-            
-            try {
-                const formData = new FormData(registerForm);
-                const data = Object.fromEntries(formData);
+        // اسکرول نرم به بخش‌ها
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
                 
-                const response = await fetch('/.netlify/functions/register', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(data)
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    alert(result.message);
-                    if (result.redirect) {
-                        window.location.href = result.redirect;
-                    }
-                } else {
-                    alert(result.message || 'خطا در ثبت نام');
+                if (targetElement) {
+                    // بستن منوی موبایل
+                    mobileMenu.classList.add('hidden');
+                    
+                    // اسکرول به بخش مورد نظر
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-            } catch (error) {
-                console.error('خطا در ثبت نام:', error);
-                alert('خطا در ارتباط با سرور. لطفاً دوباره تلاش کنید.');
-            } finally {
-                // فعال کردن مجدد دکمه ثبت نام
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'ثبت نام';
+            });
+        });
+
+        // تغییر استایل هدر هنگام اسکرول
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
             }
         });
     </script>
