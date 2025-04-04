@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>چت مخفی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .chat-container {
+            height: calc(100vh - 200px);
+            overflow-y: auto;
+        }
+        .message {
+            max-width: 70%;
+        }
+        .message.sent {
+            margin-right: auto;
+        }
+        .message.received {
+            margin-left: auto;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900">
+    <div class="container mx-auto p-4">
+        <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-4">
+            <div class="flex items-center justify-between mb-4">
+                <h1 class="text-2xl font-bold text-blue-600">چت مخفی</h1>
+                <div class="flex items-center space-x-4">
+                    <button id="profile-btn" class="bg-blue-600 text-white p-2 rounded-full">
+                        👤
+                    </button>
+                    <button id="logout-btn" class="bg-red-600 text-white p-2 rounded-lg">
+                        خروج
+                    </button>
+                </div>
+            </div>
+            
+            <div class="chat-container mb-4" id="chat-messages">
+                <!-- پیام‌ها اینجا نمایش داده می‌شوند -->
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <input type="text" id="message-input" class="flex-1 p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600" placeholder="پیام خود را بنویسید...">
+                <button id="send-btn" class="bg-blue-600 text-white p-2 rounded-lg">
+                    ارسال
+                </button>
+                <input type="file" id="file-input" class="hidden" accept="image/*,video/*,audio/*">
+                <button id="file-btn" class="bg-green-600 text-white p-2 rounded-lg">
+                    📎
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال پروفایل -->
+    <div id="profile-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden">
+        <div class="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-md mx-auto mt-20">
+            <h2 class="text-2xl font-bold text-blue-600 mb-4">پروفایل</h2>
+            <div class="flex flex-col items-center space-y-4">
+                <img id="profile-image" src="default-avatar.png" class="w-32 h-32 rounded-full">
+                <input type="file" id="profile-image-input" class="hidden" accept="image/*">
+                <button id="change-profile-image" class="bg-blue-600 text-white p-2 rounded-lg">
+                    تغییر عکس پروفایل
+                </button>
+                <p id="username" class="text-xl font-bold"></p>
+            </div>
+            <button id="close-profile-modal" class="w-full bg-gray-500 text-white p-2 rounded-lg mt-4">
+                بستن
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // مدیریت پیام‌ها
+        const chatMessages = document.getElementById('chat-messages');
+        const messageInput = document.getElementById('message-input');
+        const sendBtn = document.getElementById('send-btn');
+        const fileBtn = document.getElementById('file-btn');
+        const fileInput = document.getElementById('file-input');
+        
+        // مدیریت پروفایل
+        const profileBtn = document.getElementById('profile-btn');
+        const profileModal = document.getElementById('profile-modal');
+        const closeProfileModal = document.getElementById('close-profile-modal');
+        const profileImage = document.getElementById('profile-image');
+        const profileImageInput = document.getElementById('profile-image-input');
+        const changeProfileImage = document.getElementById('change-profile-image');
+        const username = document.getElementById('username');
+        
+        // دریافت پیام‌ها
+        async function fetchMessages() {
+            try {
+                const response = await fetch('chat.php');
+                const messages = await response.json();
+                displayMessages(messages);
+            } catch (error) {
+                console.error('خطا در دریافت پیام‌ها:', error);
+            }
+        }
+        
+        // نمایش پیام‌ها
+        function displayMessages(messages) {
+            chatMessages.innerHTML = '';
+            messages.forEach(message => {
+                const messageElement = createMessageElement(message);
+                chatMessages.appendChild(messageElement);
+            });
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // ایجاد المان پیام
+        function createMessageElement(message) {
+            const div = document.createElement('div');
+            div.className = `message ${message.user_id === currentUserId ? 'sent' : 'received'} mb-4`;
+            
+            if (message.file_url) {
+                const fileType = message.file_type.split('/')[0];
+                if (fileType === 'image') {
+                    div.innerHTML = `<img src="${message.file_url}" class="rounded-lg max-w-full">`;
+                } else if (fileType === 'video') {
+                    div.innerHTML = `<video src="${message.file_url}" controls class="rounded-lg max-w-full"></video>`;
+                } else if (fileType === 'audio') {
+                    div.innerHTML = `<audio src="${message.file_url}" controls></audio>`;
+                }
+            } else {
+                div.innerHTML = `<div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-lg">${message.message}</div>`;
+            }
+            
+            return div;
+        }
+        
+        // ارسال پیام
+        async function sendMessage(message) {
+            try {
+                const response = await fetch('chat.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message })
+                });
+                
+                if (response.ok) {
+                    messageInput.value = '';
+                    fetchMessages();
+                }
+            } catch (error) {
+                console.error('خطا در ارسال پیام:', error);
+            }
+        }
+        
+        // ارسال فایل
+        async function sendFile(file) {
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            try {
+                const response = await fetch('chat.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    fetchMessages();
+                }
+            } catch (error) {
+                console.error('خطا در ارسال فایل:', error);
+            }
+        }
+        
+        // تغییر عکس پروفایل
+        async function updateProfileImage(file) {
+            const formData = new FormData();
+            formData.append('profile_image', file);
+            
+            try {
+                const response = await fetch('chat.php', {
+                    method: 'PUT',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    profileImage.src = URL.createObjectURL(file);
+                }
+            } catch (error) {
+                console.error('خطا در آپدیت عکس پروفایل:', error);
+            }
+        }
+        
+        // Event Listeners
+        sendBtn.addEventListener('click', () => {
+            const message = messageInput.value.trim();
+            if (message) {
+                sendMessage(message);
+            }
+        });
+        
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const message = messageInput.value.trim();
+                if (message) {
+                    sendMessage(message);
+                }
+            }
+        });
+        
+        fileBtn.addEventListener('click', () => {
+            fileInput.click();
+        });
+        
+        fileInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                sendFile(e.target.files[0]);
+            }
+        });
+        
+        profileBtn.addEventListener('click', () => {
+            profileModal.classList.remove('hidden');
+        });
+        
+        closeProfileModal.addEventListener('click', () => {
+            profileModal.classList.add('hidden');
+        });
+        
+        changeProfileImage.addEventListener('click', () => {
+            profileImageInput.click();
+        });
+        
+        profileImageInput.addEventListener('change', (e) => {
+            if (e.target.files.length > 0) {
+                updateProfileImage(e.target.files[0]);
+            }
+        });
+        
+        // دریافت پیام‌ها هر 5 ثانیه
+        setInterval(fetchMessages, 5000);
+        fetchMessages();
+    </script>
+</body>
+</html> 
