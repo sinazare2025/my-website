@@ -1,21 +1,278 @@
-<!-- منوی اصلی -->
-<nav class="hidden md:flex space-x-8 space-x-reverse">
-    <a href="index.html#skills" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">مهارت‌ها</a>
-    <a href="index.html#portfolio" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نمونه کارها</a>
-    <a href="vpn.html" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">وی‌پی‌ان رایگان</a>
-    <a href="#testimonials" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نظرات</a>
-    <a href="#videos" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">ویدئوها</a>
-    <a href="#contact-info" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">تماس</a>
-</nav>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وی‌پی‌ان رایگان | سینا زارع</title>
+    <meta name="description" content="دریافت کانفیگ‌های رایگان وی‌پی‌ان با آپدیت روزانه">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* حالت شب */
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-white {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark-mode .text-gray-600 {
+            color: #cbd5e0;
+        }
+        .dark-mode .text-gray-800 {
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-red-800 {
+            background-color: #742a2a;
+        }
+        .dark-mode .bg-gray-50 {
+            background-color: #2d3748;
+        }
+        .dark-mode .text-red-800 {
+            color: #fc8181;
+        }
+        .dark-mode .hover\:bg-red-900:hover {
+            background-color: #63171b;
+        }
+        
+        .logo {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: #981b2a;
+            display: flex;
+            align-items: center;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #981b2a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        
+        .configs {
+            direction: ltr;
+            text-align: left;
+            font-family: monospace;
+        }
 
-<!-- منوی موبایل -->
-<div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 shadow-lg">
-    <div class="px-4 py-2 space-y-2">
-        <a href="#skills" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">مهارت‌ها</a>
-        <a href="#portfolio" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نمونه کارها</a>
-        <a href="vpn.html" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">وی‌پی‌ان رایگان</a>
-        <a href="#testimonials" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نظرات</a>
-        <a href="#videos" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">ویدئوها</a>
-        <a href="#contact-info" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">تماس</a>
-    </div>
-</div> 
+        /* انیمیشن دکمه کپی */
+        @keyframes copySuccess {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .copy-success {
+            animation: copySuccess 0.3s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- هدر با منوی ناوبری -->
+    <header class="bg-white dark:bg-gray-800 shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- لوگو -->
+                <div class="flex items-center">
+                    <div class="logo flex-row-reverse">
+                        <a href="index.html" class="text-red-800 dark:text-red-400">سینا زارع</a>
+                        <div class="logo-icon">س</div>
+                    </div>
+                </div>
+
+                <!-- منوی اصلی -->
+                <nav class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="index.html#skills" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">مهارت‌ها</a>
+                    <a href="index.html#portfolio" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نمونه کارها</a>
+                    <a href="vpn.html" class="text-red-800 dark:text-red-400 font-bold">وی‌پی‌ان رایگان</a>
+                    <a href="index.html#testimonials" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نظرات</a>
+                    <a href="index.html#videos" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">ویدئوها</a>
+                    <a href="index.html#contact-info" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">تماس</a>
+                </nav>
+
+                <!-- دکمه‌های سمت چپ -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <span id="dark-mode-icon">🌙</span>
+                    </button>
+                </div>
+
+                <!-- دکمه منو موبایل -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- منوی موبایل -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-4 py-2 space-y-2">
+                <a href="index.html#skills" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">مهارت‌ها</a>
+                <a href="index.html#portfolio" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نمونه کارها</a>
+                <a href="vpn.html" class="block text-red-800 dark:text-red-400 font-bold">وی‌پی‌ان رایگان</a>
+                <a href="index.html#testimonials" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نظرات</a>
+                <a href="index.html#videos" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">ویدئوها</a>
+                <a href="index.html#contact-info" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">تماس</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- فاصله‌گذار برای هدر ثابت -->
+    <div class="h-16"></div>
+
+    <!-- محتوای اصلی -->
+    <main class="container mx-auto px-4 py-8">
+        <div class="max-w-4xl mx-auto">
+            <!-- هدر صفحه -->
+            <div class="text-center mb-8" data-aos="fade-up">
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">کانفیگ‌های رایگان وی‌پی‌ان</h1>
+                <p class="text-gray-600 dark:text-gray-400">کانفیگ‌های زیر به صورت روزانه به‌روزرسانی می‌شوند. برای استفاده، کافیست آنها را در نرم‌افزار مورد نظر خود کپی کنید.</p>
+            </div>
+
+            <!-- باکس کانفیگ‌ها -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8 relative" data-aos="fade-up" data-aos-delay="100">
+                <button onclick="copyConfigs()" class="absolute top-4 left-4 bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-900 transition-colors">
+                    کپی همه
+                </button>
+                <pre id="configs" class="configs bg-gray-50 dark:bg-gray-900 p-4 rounded-lg mt-12 overflow-x-auto text-gray-800 dark:text-gray-200"></pre>
+                <div class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
+                    آخرین به‌روزرسانی: <span id="update-time" class="font-medium"></span>
+                </div>
+            </div>
+
+            <!-- راهنمای استفاده -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4">راهنمای استفاده</h2>
+                <ol class="list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-400">
+                    <li>دکمه "کپی همه" را بزنید تا تمام کانفیگ‌ها در کلیپ‌بورد شما کپی شوند.</li>
+                    <li>نرم‌افزار مورد نظر خود را باز کنید.</li>
+                    <li>به بخش افزودن کانفیگ جدید بروید.</li>
+                    <li>کانفیگ‌های کپی شده را در آنجا پیست کنید.</li>
+                    <li>تمام! حالا می‌توانید از اینترنت آزاد استفاده کنید.</li>
+                </ol>
+            </div>
+        </div>
+    </main>
+
+    <!-- فوتر -->
+    <footer class="bg-gray-900 text-gray-300 mt-12 py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-bold mb-4">درباره من</h3>
+                    <p class="text-gray-400">من یک توسعه‌دهنده فول‌استک هستم که به تکنولوژی و نوآوری علاقه دارم.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">لینک‌های سریع</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">خانه</a></li>
+                        <li><a href="vpn.html" class="text-gray-400 hover:text-white transition-colors">وی‌پی‌ان رایگان</a></li>
+                        <li><a href="index.html#contact-info" class="text-gray-400 hover:text-white transition-colors">تماس</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-4">تماس با من</h3>
+                    <p class="text-gray-400">ایمیل: example@email.com</p>
+                    <p class="text-gray-400">تلفن: ۰۹۱۲۳۴۵۶۷۸۹</p>
+                </div>
+            </div>
+            <div class="text-center text-gray-400 mt-8 pt-8 border-t border-gray-800">
+                <p>تمامی حقوق محفوظ است &copy; ۱۴۰۳</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // راه‌اندازی AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // کپی کردن کانفیگ‌ها
+        function copyConfigs() {
+            const configs = document.getElementById('configs');
+            const text = configs.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const button = document.querySelector('button');
+                const originalText = button.textContent;
+                button.textContent = 'کپی شد!';
+                button.classList.add('bg-green-600');
+                button.classList.remove('bg-red-800', 'hover:bg-red-900');
+                button.classList.add('copy-success');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('bg-green-600', 'copy-success');
+                    button.classList.add('bg-red-800', 'hover:bg-red-900');
+                }, 2000);
+            }).catch(err => {
+                console.error('خطا در کپی کردن:', err);
+                alert('خطا در کپی کردن. لطفاً دوباره تلاش کنید.');
+            });
+        }
+
+        // خواندن کانفیگ‌ها از فایل
+        fetch('vpn.txt')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('configs').textContent = data || 'کانفیگی موجود نیست.';
+            })
+            .catch(error => {
+                console.error('خطا در خواندن کانفیگ‌ها:', error);
+                document.getElementById('configs').textContent = 'خطا در بارگذاری کانفیگ‌ها. لطفاً صفحه را رفرش کنید.';
+            });
+
+        // به‌روزرسانی زمان
+        const now = new Date();
+        const options = { 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        };
+        document.getElementById('update-time').textContent = new Intl.DateTimeFormat('fa-IR', options).format(now);
+
+        // تغییر حالت شب/روز
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeIcon = document.getElementById('dark-mode-icon');
+        
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            darkModeIcon.textContent = isDarkMode ? '☀️' : '🌙';
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        
+        // بررسی حالت شب/روز ذخیره شده
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            darkModeIcon.textContent = '☀️';
+        }
+
+        // منوی موبایل
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html> 
