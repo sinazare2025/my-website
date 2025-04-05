@@ -1,632 +1,0 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ولاگ‌های هوش مصنوعی | سینا زارع</title>
-    <meta name="description" content="ولاگ‌های آموزشی درباره هوش مصنوعی و دنیای تکنولوژی جدید. آخرین اخبار، مقالات و آموزش‌های کاربردی در زمینه هوش مصنوعی و فناوری‌های نوین.">
-    <meta name="keywords" content="هوش مصنوعی, ولاگ هوش مصنوعی, تکنولوژی جدید, یادگیری ماشین, چت جی‌پی‌تی, دیپ لرنینگ, سینا زارع">
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    
-    <style>
-        /* حالت شب */
-        .dark-mode {
-            background-color: #1a202c;
-            color: #e2e8f0;
-        }
-        .dark-mode .bg-white {
-            background-color: #2d3748;
-            color: #e2e8f0;
-        }
-        .dark-mode .text-gray-600 {
-            color: #cbd5e0;
-        }
-        .dark-mode .text-gray-800 {
-            color: #e2e8f0;
-        }
-        .dark-mode .bg-red-800 {
-            background-color: #742a2a;
-        }
-        .dark-mode .bg-gray-50 {
-            background-color: #2d3748;
-        }
-        .dark-mode .text-red-800 {
-            color: #fc8181;
-        }
-        .dark-mode .hover\:bg-red-900:hover {
-            background-color: #63171b;
-        }
-        
-        .hover\:scale-105:hover {
-            transform: scale(1.05);
-            transition: transform 0.3s ease-in-out;
-        }
-        .transition-all {
-            transition: all 0.3s ease-in-out;
-        }
-        .logo {
-            font-family: 'Arial', sans-serif;
-            font-weight: bold;
-            font-size: 1.8rem;
-            color: #981b2a;
-            display: flex;
-            align-items: center;
-        }
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background-color: #981b2a;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-left: 10px;
-            font-weight: bold;
-        }
-        #mute-btn, #dark-mode-toggle {
-            transition: all 0.3s ease;
-        }
-        .floating-btn {
-            animation: float 3s ease-in-out infinite;
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        /* استایل برای بازی‌ها */
-        .game-container {
-            border: 3px solid #981b2a;
-            border-radius: 10px;
-            background-color: #000;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .game-btn {
-            background-color: #981b2a;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: all 0.3s ease;
-        }
-        
-        .game-btn:hover {
-            background-color: #7a1521;
-        }
-        
-        .game-card {
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .game-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px -5px rgba(152, 27, 42, 0.3);
-        }
-        
-        .instruction-list li {
-            margin-bottom: 10px;
-            position: relative;
-            padding-right: 25px;
-        }
-        
-        .instruction-list li:before {
-            content: "🎮";
-            position: absolute;
-            right: 0;
-            top: 0;
-        }
-    </style>
-</head>
-<body class="bg-gray-50 font-sans">
-    <!-- هدر جدید با منوی ناوبری -->
-    <header class="bg-white dark:bg-gray-800 shadow-lg fixed w-full top-0 z-50">
-        <div class="container mx-auto px-4">
-            <div class="flex items-center justify-between h-16">
-                <!-- لوگو -->
-                <div class="flex items-center">
-                    <div class="logo flex-row-reverse">
-                        <span class="text-red-800 dark:text-red-400">سینا زارع</span>
-                        <div class="logo-icon">س</div>
-                    </div>
-                </div>
-
-                <!-- منوی اصلی -->
-                <nav class="hidden md:flex space-x-8 space-x-reverse">
-                    <a href="index.html#skills" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">مهارت‌ها</a>
-                    <a href="index.html#portfolio" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نمونه کارها</a>
-                    <a href="vlogs.html" class="text-red-800 dark:text-red-400 transition-colors">ولاگ‌ها</a>
-                    <a href="index.html#testimonials" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نظرات</a>
-                    <a href="index.html#videos" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">ویدئوها</a>
-                    <a href="index.html#contact-info" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">تماس</a>
-                </nav>
-
-                <!-- دکمه‌های سمت چپ -->
-                <div class="flex items-center space-x-4 space-x-reverse">
-                    <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                        <span id="dark-mode-icon">🌙</span>
-                    </button>
-                    <a href="index.html" class="bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-900 transition-colors hidden md:block">بازگشت به صفحه اصلی</a>
-                </div>
-
-                <!-- دکمه منو موبایل -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <!-- منوی موبایل -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 shadow-lg">
-            <div class="px-4 py-2 space-y-2">
-                <a href="index.html#skills" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">مهارت‌ها</a>
-                <a href="index.html#portfolio" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نمونه کارها</a>
-                <a href="vlogs.html" class="block text-red-800 dark:text-red-400 transition-colors">ولاگ‌ها</a>
-                <a href="index.html#testimonials" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نظرات</a>
-                <a href="index.html#videos" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">ویدئوها</a>
-                <a href="index.html#contact-info" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">تماس</a>
-            </div>
-        </div>
-    </header>
-
-    <!-- فاصله‌گذار برای هدر ثابت -->
-    <div class="h-16"></div>
-
-    <!-- محتوای اصلی صفحه -->
-    <main class="container mx-auto px-4 py-8">
-        <!-- بخش معرفی -->
-        <section class="relative py-12 mb-12 bg-red-800 text-white rounded-lg overflow-hidden">
-            <div class="absolute inset-0 opacity-20 bg-[url('https://img.freepik.com/free-photo/ai-nuclear-energy-background-future-innovation-disruptive-technology_53876-129783.jpg?t=st=1714427968~exp=1714431568~hmac=abb2d2f2449b7e48686de170d2feb5f55b764aada72919a40a67875c7a8db767&w=1380')] bg-cover bg-center"></div>
-            <div class="relative z-10 text-center">
-                <h1 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">ولاگ‌های هوش مصنوعی</h1>
-                <p class="md:text-lg mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    آخرین مقالات، اخبار و آموزش‌های کاربردی در زمینه هوش مصنوعی و فناوری‌های نوین را در اینجا دنبال کنید. از چت‌جی‌پی‌تی تا متاورس، ما همه چیز را پوشش می‌دهیم.
-                </p>
-            </div>
-        </section>
-
-        <!-- کارت‌های ولاگ‌ها -->
-        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <!-- ولاگ ۱: چت‌جی‌پی‌تی ۴ -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                <div class="relative">
-                    <img src="https://img.freepik.com/free-vector/gradient-chatgpt-background_23-2150400632.jpg?t=st=1714428192~exp=1714431792~hmac=d7af9bdaab33c8b5c0aeec9d0429558902920f57fac579534d3b76b5b13d2140&w=1380" alt="چت‌جی‌پی‌تی ۴" class="w-full h-48 object-cover">
-                    <div class="absolute top-2 right-2 bg-red-800 text-white text-xs px-2 py-1 rounded">هوش مصنوعی</div>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-xl font-bold text-red-800 dark:text-red-400 mb-2">چت‌جی‌پی‌تی ۴: انقلابی در هوش مصنوعی تولیدی</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">بررسی قابلیت‌های جدید چت‌جی‌پی‌تی ۴ و تاثیر آن بر آینده تعامل انسان با هوش مصنوعی...</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm text-gray-500">۱۲ تیر ۱۴۰۳</span>
-                        <a href="vlog-chatgpt4.html" class="text-red-800 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 font-medium">ادامه مطلب</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- ولاگ ۲: هوش مصنوعی در پزشکی -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                <div class="relative">
-                    <img src="https://img.freepik.com/free-photo/scientist-researching-laboratory_23-2148880431.jpg?t=st=1714428309~exp=1714431909~hmac=45e48dc3b3e7f9e2c9b6f3fce1cc1d47e9a71a5ba4f87ede3c33b0f5f7acf95c&w=1380" alt="هوش مصنوعی در پزشکی" class="w-full h-48 object-cover">
-                    <div class="absolute top-2 right-2 bg-red-800 text-white text-xs px-2 py-1 rounded">سلامتی</div>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-xl font-bold text-red-800 dark:text-red-400 mb-2">هوش مصنوعی در پزشکی: نجات جان انسان‌ها</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">چگونه هوش مصنوعی به تشخیص زودهنگام بیماری‌ها، توسعه داروها و جراحی‌های دقیق کمک می‌کند...</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm text-gray-500">۵ تیر ۱۴۰۳</span>
-                        <a href="vlog-ai-medicine.html" class="text-red-800 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 font-medium">ادامه مطلب</a>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- ولاگ ۳: متاورس -->
-            <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all">
-                <div class="relative">
-                    <img src="https://img.freepik.com/free-photo/metaverse-concept-collage_23-2149419533.jpg?t=st=1714428474~exp=1714432074~hmac=94f8f68e6e9a4d2ae6c59f5ea87b530e19a7f92b7d49beb9d43d9e59efa91b8d&w=1380" alt="متاورس" class="w-full h-48 object-cover">
-                    <div class="absolute top-2 right-2 bg-red-800 text-white text-xs px-2 py-1 rounded">واقعیت مجازی</div>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-xl font-bold text-red-800 dark:text-red-400 mb-2">متاورس: آینده تعامل دیجیتال</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-4">معرفی متاورس، دنیای مجازی جدیدی که مرز بین واقعیت و فضای دیجیتال را محو می‌کند...</p>
-                    <div class="flex justify-between items-center">
-                        <span class="text-sm text-gray-500">۲۸ خرداد ۱۴۰۳</span>
-                        <a href="vlog-metaverse.html" class="text-red-800 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 font-medium">ادامه مطلب</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- بخش جستجو و فیلتر -->
-        <section class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-12">
-            <div class="flex flex-col md:flex-row gap-4">
-                <div class="flex-1">
-                    <label for="search" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">جستجو در ولاگ‌ها</label>
-                    <div class="relative">
-                        <input type="text" id="search" placeholder="عبارت مورد نظر خود را وارد کنید..." class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-red-800 focus:border-red-800 dark:bg-gray-700 dark:text-white">
-                        <button class="absolute left-2 top-2 text-gray-500 dark:text-gray-400">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <div>
-                    <label for="category" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">دسته‌بندی</label>
-                    <select id="category" class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-red-800 focus:border-red-800 dark:bg-gray-700 dark:text-white">
-                        <option value="all">همه دسته‌ها</option>
-                        <option value="ai">هوش مصنوعی</option>
-                        <option value="health">سلامتی</option>
-                        <option value="vr">واقعیت مجازی</option>
-                        <option value="crypto">ارز دیجیتال</option>
-                        <option value="iot">اینترنت اشیاء</option>
-                    </select>
-                </div>
-            </div>
-        </section>
-
-        <!-- نمایش همه ولاگ‌ها -->
-        <section id="all-vlogs" class="mb-12">
-            <h2 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-6">آخرین ولاگ‌ها</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- ولاگ ۴: یادگیری عمیق -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all" data-category="ai">
-                    <div class="relative">
-                        <img src="https://img.freepik.com/free-photo/futuristic-ai-technology-brain-background-smart-digital-innovation_53876-143175.jpg?t=st=1714428664~exp=1714432264~hmac=66c5f7cf96c7ca4983d7dca36eb2f55d1a5be11e99aa1c3dc65d50d24ce97dcc&w=1380" alt="یادگیری عمیق" class="w-full h-48 object-cover">
-                        <div class="absolute top-2 right-2 bg-red-800 text-white text-xs px-2 py-1 rounded">هوش مصنوعی</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold text-red-800 dark:text-red-400 mb-2">یادگیری عمیق: موتور محرک هوش مصنوعی مدرن</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">مفاهیم پایه یادگیری عمیق و کاربردهای آن در تشخیص تصویر، پردازش زبان طبیعی و بینایی ماشین...</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">۲۰ خرداد ۱۴۰۳</span>
-                            <a href="vlog-deep-learning.html" class="text-red-800 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 font-medium">ادامه مطلب</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ولاگ ۵: بلاکچین -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all" data-category="crypto">
-                    <div class="relative">
-                        <img src="https://img.freepik.com/free-photo/blockchain-technology-concept_23-2150389971.jpg?t=st=1714428738~exp=1714432338~hmac=f3b9e0fa01c0b8adb99858bf6e417c75f6db3b4c8cc5d988c8c2e06d8bbe9b8b&w=1380" alt="بلاکچین" class="w-full h-48 object-cover">
-                        <div class="absolute top-2 right-2 bg-red-800 text-white text-xs px-2 py-1 rounded">ارز دیجیتال</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold text-red-800 dark:text-red-400 mb-2">بلاکچین: فراتر از ارزهای دیجیتال</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">کاربردهای بلاکچین در صنایع مختلف از مالی گرفته تا زنجیره تامین و سیستم‌های رای‌گیری...</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">۱۵ خرداد ۱۴۰۳</span>
-                            <a href="vlog-blockchain.html" class="text-red-800 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 font-medium">ادامه مطلب</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ولاگ ۶: اینترنت اشیاء -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all" data-category="iot">
-                    <div class="relative">
-                        <img src="https://img.freepik.com/free-photo/iot-smart-home-automation-system-device-control-innovation-technology_53876-124003.jpg?t=st=1714428839~exp=1714432439~hmac=bf8c15d1bf0f7c2ecb43fa078db1cf7f51c42fd3c14c60c075683ea09d4af499&w=1380" alt="اینترنت اشیاء" class="w-full h-48 object-cover">
-                        <div class="absolute top-2 right-2 bg-red-800 text-white text-xs px-2 py-1 rounded">اینترنت اشیاء</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold text-red-800 dark:text-red-400 mb-2">اینترنت اشیاء: دنیای متصل آینده</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">چگونه اینترنت اشیاء خانه‌های هوشمند، شهرهای هوشمند و صنعت ۴.۰ را متحول می‌کند...</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">۸ خرداد ۱۴۰۳</span>
-                            <a href="vlog-iot.html" class="text-red-800 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 font-medium">ادامه مطلب</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ولاگ ۷: پردازش زبان طبیعی -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all" data-category="ai">
-                    <div class="relative">
-                        <img src="https://img.freepik.com/free-vector/nlp-natural-language-processing-concept-with-programmer-tiny-people-character-modern-flat-style-illustration_611781-77.jpg?t=st=1714428961~exp=1714432561~hmac=df3a7953cce03c86e5db77dea2c2ee219ec8329b7cc2c23b3b1d87dae7baae26&w=1380" alt="پردازش زبان طبیعی" class="w-full h-48 object-cover">
-                        <div class="absolute top-2 right-2 bg-red-800 text-white text-xs px-2 py-1 rounded">هوش مصنوعی</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold text-red-800 dark:text-red-400 mb-2">پردازش زبان طبیعی: درک ماشین از زبان انسان</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">پیشرفت‌های اخیر در پردازش زبان طبیعی و تاثیر آن بر مترجم‌های ماشینی، چت‌بات‌ها و تحلیل احساسات...</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">۱ خرداد ۱۴۰۳</span>
-                            <a href="vlog-nlp.html" class="text-red-800 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 font-medium">ادامه مطلب</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ولاگ ۸: واقعیت افزوده -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all" data-category="vr">
-                    <div class="relative">
-                        <img src="https://img.freepik.com/free-photo/man-with-virtual-reality-headset-touching-vr-interface_23-2149135949.jpg?t=st=1714429057~exp=1714432657~hmac=c5f2ffc1e6b7bcbff36afc6b25ba33c05c6a371b3edf5ee22e69cead8e3e8de5&w=1380" alt="واقعیت افزوده" class="w-full h-48 object-cover">
-                        <div class="absolute top-2 right-2 bg-red-800 text-white text-xs px-2 py-1 rounded">واقعیت مجازی</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold text-red-800 dark:text-red-400 mb-2">واقعیت افزوده: ترکیب دنیای واقعی و مجازی</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">کاربردهای واقعیت افزوده در آموزش، خرده‌فروشی، سرگرمی و صنعت گردشگری...</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">۲۷ اردیبهشت ۱۴۰۳</span>
-                            <a href="vlog-augmented-reality.html" class="text-red-800 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 font-medium">ادامه مطلب</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- ولاگ ۹: رباتیک -->
-                <div class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all" data-category="ai">
-                    <div class="relative">
-                        <img src="https://img.freepik.com/free-photo/medium-shot-scientist-making-robotics_23-2150430064.jpg?t=st=1714429133~exp=1714432733~hmac=9e8e99d0c9c11825fa83cd7fd19172f18fcf92d2b80e82f1c4c47ce3f07fbf10&w=1380" alt="رباتیک" class="w-full h-48 object-cover">
-                        <div class="absolute top-2 right-2 bg-red-800 text-white text-xs px-2 py-1 rounded">هوش مصنوعی</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-lg font-bold text-red-800 dark:text-red-400 mb-2">رباتیک پیشرفته: همکاری انسان و ماشین</h3>
-                        <p class="text-gray-600 dark:text-gray-300 mb-4">پیشرفت‌های اخیر در رباتیک و کاربردهای آن در صنعت، پزشکی و کمک به سالمندان...</p>
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm text-gray-500">۲۰ اردیبهشت ۱۴۰۳</span>
-                            <a href="vlog-robotics.html" class="text-red-800 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300 font-medium">ادامه مطلب</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- دکمه نمایش بیشتر -->
-            <div class="text-center mt-8">
-                <button id="load-more" class="bg-red-800 text-white px-6 py-3 rounded-lg hover:bg-red-900 transition-colors">
-                    نمایش ولاگ‌های بیشتر
-                </button>
-            </div>
-        </section>
-
-        <!-- بخش خبرنامه -->
-        <section class="bg-red-50 dark:bg-gray-700 p-8 rounded-lg mb-12">
-            <div class="max-w-2xl mx-auto text-center">
-                <h2 class="text-2xl font-bold text-red-800 dark:text-red-400 mb-4">عضویت در خبرنامه</h2>
-                <p class="text-gray-600 dark:text-gray-300 mb-6">برای دریافت آخرین اخبار و مقالات در زمینه هوش مصنوعی و تکنولوژی‌های نوین در خبرنامه ما عضو شوید.</p>
-                <form class="flex flex-col md:flex-row gap-4">
-                    <input type="email" placeholder="ایمیل خود را وارد کنید..." class="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-red-800 focus:border-red-800 dark:bg-gray-800 dark:text-white">
-                    <button type="submit" class="bg-red-800 text-white px-6 py-2 rounded-lg hover:bg-red-900 transition-colors">عضویت</button>
-                </form>
-            </div>
-        </section>
-
-        <!-- بخش نمایش محتوای مقاله -->
-        <section id="vlog-content" class="hidden bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md mb-12">
-            <button id="back-to-vlogs" class="bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white px-4 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors mb-4">
-                بازگشت به لیست ولاگ‌ها
-            </button>
-            
-            <div class="vlog-header mb-6">
-                <h1 id="vlog-title" class="text-2xl md:text-3xl font-bold text-red-800 dark:text-red-400 mb-4"></h1>
-                <div class="flex items-center text-sm text-gray-500 mb-4">
-                    <span id="vlog-date" class="ml-4"></span>
-                    <span id="vlog-category" class="bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 px-2 py-1 rounded"></span>
-                </div>
-                <img id="vlog-image" src="" alt="" class="w-full h-64 md:h-96 object-cover rounded-lg mb-4">
-            </div>
-            
-            <div id="vlog-body" class="prose prose-lg max-w-none dark:prose-invert">
-                <!-- محتوای مقاله اینجا قرار می‌گیرد -->
-            </div>
-            
-            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
-                <h3 class="text-xl font-bold text-red-800 dark:text-red-400 mb-4">اشتراک‌گذاری</h3>
-                <div class="flex space-x-4 space-x-reverse">
-                    <a href="#" class="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
-                    </a>
-                    <a href="#" class="bg-blue-400 text-white p-2 rounded-full hover:bg-blue-500 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
-                    </a>
-                    <a href="#" class="bg-green-500 text-white p-2 rounded-full hover:bg-green-600 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-                    </a>
-                    <a href="#" class="bg-blue-700 text-white p-2 rounded-full hover:bg-blue-800 transition-colors">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/></svg>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="mt-8">
-                <h3 class="text-xl font-bold text-red-800 dark:text-red-400 mb-4">ولاگ‌های مرتبط</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                        <h4 class="font-bold text-red-800 dark:text-red-400 mb-2">یادگیری ماشین در کسب و کارها</h4>
-                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400">مشاهده ولاگ</a>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                        <h4 class="font-bold text-red-800 dark:text-red-400 mb-2">آینده هوش مصنوعی و مشاغل</h4>
-                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400">مشاهده ولاگ</a>
-                    </div>
-                    <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
-                        <h4 class="font-bold text-red-800 dark:text-red-400 mb-2">اخلاق در هوش مصنوعی</h4>
-                        <a href="#" class="text-gray-600 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400">مشاهده ولاگ</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- فوتر صفحه -->
-    <footer class="bg-red-800 text-white py-4 text-center shadow-lg">
-        <div class="container mx-auto">
-            <p>تمامی حقوق محفوظ است. © 2024 | طراحی شده توسط سینا زارع</p>
-            <div class="flex justify-center mt-2 space-x-4">
-                <a href="https://www.instagram.com/cna.za/?utm_source=qr&r=nametag" target="_blank" class="text-white hover:text-gray-200">اینستاگرام</a>
-                <a href="https://wa.me/989964508265" target="_blank" class="text-white hover:text-gray-200">واتساپ</a>
-                <a href="tel:+989964508265" class="text-white hover:text-gray-200">تماس تلفنی</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- اسکریپت AOS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // مقدار دهی اولیه کتابخانه AOS
-        AOS.init();
-        
-        // حالت شب/روز
-        const darkModeToggle = document.getElementById('dark-mode-toggle');
-        const darkModeIcon = document.getElementById('dark-mode-icon');
-        let isDarkMode = false;
-        
-        // بررسی حالت ذخیره شده در localStorage
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            enableDarkMode();
-        }
-        
-        darkModeToggle.addEventListener('click', function() {
-            isDarkMode = !isDarkMode;
-            
-            if (isDarkMode) {
-                enableDarkMode();
-                localStorage.setItem('darkMode', 'enabled');
-            } else {
-                disableDarkMode();
-                localStorage.setItem('darkMode', 'disabled');
-            }
-        });
-        
-        function enableDarkMode() {
-            document.body.classList.add('dark-mode');
-            darkModeIcon.textContent = '☀️';
-        }
-        
-        function disableDarkMode() {
-            document.body.classList.remove('dark-mode');
-            darkModeIcon.textContent = '🌙';
-        }
-        
-        // منوی موبایل
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // اسکرول نرم به بخش‌ها
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    // بستن منوی موبایل
-                    mobileMenu.classList.add('hidden');
-                    
-                    // اسکرول به بخش مورد نظر
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-        
-        // جستجو و فیلتر ولاگ‌ها
-        const searchInput = document.getElementById('search');
-        const categorySelect = document.getElementById('category');
-        const vlogCards = document.querySelectorAll('#all-vlogs .grid > div');
-        
-        // جستجو در ولاگ‌ها
-        searchInput.addEventListener('input', filterVlogs);
-        categorySelect.addEventListener('change', filterVlogs);
-        
-        function filterVlogs() {
-            const searchTerm = searchInput.value.trim().toLowerCase();
-            const selectedCategory = categorySelect.value;
-            
-            vlogCards.forEach(card => {
-                const title = card.querySelector('h3').textContent.toLowerCase();
-                const description = card.querySelector('p').textContent.toLowerCase();
-                const category = card.getAttribute('data-category');
-                
-                const matchesSearch = title.includes(searchTerm) || description.includes(searchTerm);
-                const matchesCategory = selectedCategory === 'all' || category === selectedCategory;
-                
-                if (matchesSearch && matchesCategory) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-        
-        // نمایش بیشتر
-        const loadMoreBtn = document.getElementById('load-more');
-        let currentVlogsCount = 6; // تعداد ولاگ‌هایی که در ابتدا نمایش داده می‌شوند
-        
-        // در ابتدا فقط 6 ولاگ اول نمایش داده شود
-        vlogCards.forEach((card, index) => {
-            if (index >= currentVlogsCount) {
-                card.style.display = 'none';
-            }
-        });
-        
-        // کلیک روی دکمه نمایش بیشتر
-        loadMoreBtn.addEventListener('click', () => {
-            // نمایش 3 ولاگ بیشتر
-            for (let i = currentVlogsCount; i < currentVlogsCount + 3; i++) {
-                if (vlogCards[i]) {
-                    vlogCards[i].style.display = 'block';
-                }
-            }
-            
-            currentVlogsCount += 3;
-            
-            // اگر همه ولاگ‌ها نمایش داده شده‌اند، دکمه مخفی شود
-            if (currentVlogsCount >= vlogCards.length) {
-                loadMoreBtn.style.display = 'none';
-            }
-        });
-        
-        // اضافه کردن اسکرول به بالا
-        const scrollToTop = document.createElement('button');
-        scrollToTop.innerHTML = '&#8593;';
-        scrollToTop.className = 'fixed bottom-6 left-6 bg-red-800 text-white p-3 rounded-full shadow-lg hover:bg-red-900 transition-colors';
-        scrollToTop.style.display = 'none';
-        document.body.appendChild(scrollToTop);
-        
-        scrollToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 300) {
-                scrollToTop.style.display = 'block';
-            } else {
-                scrollToTop.style.display = 'none';
-            }
-        });
-        
-        // اضافه کردن وضعیت بارگذاری به فرم خبرنامه
-        const newsletterForm = document.querySelector('form');
-        newsletterForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            const submitBtn = newsletterForm.querySelector('button');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'در حال ثبت...';
-            submitBtn.disabled = true;
-            
-            // شبیه‌سازی ارسال فرم
-            setTimeout(() => {
-                alert('ایمیل شما با موفقیت در خبرنامه ثبت شد.');
-                newsletterForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        });
-    </script>
-</body>
-</html> 
