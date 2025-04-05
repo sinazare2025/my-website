@@ -62,7 +62,41 @@
         .configs {
             direction: ltr;
             text-align: left;
-            font-family: monospace;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            white-space: pre;
+            overflow-x: auto;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: 1px solid #e9ecef;
+        }
+        
+        .dark-mode .configs {
+            background-color: #2d3748;
+            border-color: #4a5568;
+            color: #e2e8f0;
+        }
+        
+        .copy-button {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #981b2a;
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .copy-button:hover {
+            background-color: #7c1521;
+        }
+        
+        .copy-button.success {
+            background-color: #059669;
         }
 
         /* انیمیشن دکمه کپی */
@@ -142,10 +176,10 @@
 
             <!-- باکس کانفیگ‌ها -->
             <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8 relative" data-aos="fade-up" data-aos-delay="100">
-                <button onclick="copyConfigs()" class="absolute top-4 left-4 bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-900 transition-colors">
+                <button onclick="copyConfigs()" class="copy-button">
                     کپی همه
                 </button>
-                <pre id="configs" class="configs bg-gray-50 dark:bg-gray-900 p-4 rounded-lg mt-12 overflow-x-auto text-gray-800 dark:text-gray-200"></pre>
+                <pre id="configs" class="configs mt-12"></pre>
                 <div class="text-center text-sm text-gray-500 dark:text-gray-400 mt-4">
                     آخرین به‌روزرسانی: <span id="update-time" class="font-medium"></span>
                 </div>
@@ -205,19 +239,16 @@
         function copyConfigs() {
             const configs = document.getElementById('configs');
             const text = configs.textContent;
+            const button = document.querySelector('.copy-button');
             
             navigator.clipboard.writeText(text).then(() => {
-                const button = document.querySelector('button');
                 const originalText = button.textContent;
                 button.textContent = 'کپی شد!';
-                button.classList.add('bg-green-600');
-                button.classList.remove('bg-red-800', 'hover:bg-red-900');
-                button.classList.add('copy-success');
+                button.classList.add('success');
                 
                 setTimeout(() => {
                     button.textContent = originalText;
-                    button.classList.remove('bg-green-600', 'copy-success');
-                    button.classList.add('bg-red-800', 'hover:bg-red-900');
+                    button.classList.remove('success');
                 }, 2000);
             }).catch(err => {
                 console.error('خطا در کپی کردن:', err);
@@ -229,7 +260,11 @@
         fetch('vpn.txt')
             .then(response => response.text())
             .then(data => {
-                document.getElementById('configs').textContent = data || 'کانفیگی موجود نیست.';
+                if (data.trim()) {
+                    document.getElementById('configs').textContent = data;
+                } else {
+                    document.getElementById('configs').textContent = 'کانفیگی موجود نیست.';
+                }
             })
             .catch(error => {
                 console.error('خطا در خواندن کانفیگ‌ها:', error);
