@@ -285,21 +285,45 @@
         // تغییر حالت شب/روز
         const darkModeToggle = document.getElementById('dark-mode-toggle');
         const darkModeIcon = document.getElementById('dark-mode-icon');
+        let isDarkMode = false;
         
         function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            const isDarkMode = document.body.classList.contains('dark-mode');
-            darkModeIcon.textContent = isDarkMode ? '☀️' : '🌙';
-            localStorage.setItem('darkMode', isDarkMode);
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                enableDarkMode();
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                disableDarkMode();
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+        
+        function initializeDarkMode() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'enabled') {
+                enableDarkMode();
+                isDarkMode = true;
+            } else {
+                disableDarkMode();
+                isDarkMode = false;
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+        
+        function enableDarkMode() {
+            document.body.classList.add('dark-mode');
+            darkModeIcon.textContent = '☀️';
+        }
+        
+        function disableDarkMode() {
+            document.body.classList.remove('dark-mode');
+            darkModeIcon.textContent = '🌙';
         }
         
         darkModeToggle.addEventListener('click', toggleDarkMode);
         
-        // بررسی حالت شب/روز ذخیره شده
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.body.classList.add('dark-mode');
-            darkModeIcon.textContent = '☀️';
-        }
+        // تنظیم اولیه حالت تاریک/روشن
+        initializeDarkMode();
 
         // منوی موبایل
         const mobileMenuButton = document.getElementById('mobile-menu-button');

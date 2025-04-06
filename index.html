@@ -149,7 +149,7 @@
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16">
                 <!-- لوگو -->
-                <div class="flex items-center">
+            <div class="flex items-center">
                     <div class="logo flex-row-reverse">
                         <span class="text-red-800 dark:text-red-400">سینا زارع</span>
                         <div class="logo-icon">س</div>
@@ -169,8 +169,8 @@
                 <!-- دکمه‌های سمت چپ -->
                 <div class="flex items-center space-x-4 space-x-reverse">
                     <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                        <span id="dark-mode-icon">🌙</span>
-                    </button>
+                    <span id="dark-mode-icon">🌙</span>
+                </button>
                     <a href="tel:+989964508265" class="bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-900 transition-colors hidden md:block">تماس با من</a>
                 </div>
 
@@ -198,7 +198,7 @@
 
     <!-- فاصله‌گذار برای هدر ثابت -->
     <div class="h-16"></div>
-
+    
     <!-- محتوای اصلی صفحه -->
     <main class="container mx-auto px-4">
         <!-- بخش قهرمان -->
@@ -219,7 +219,7 @@
                 </div>
                 
                 <!-- آمار و ارقام -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16" data-aos="fade-up" data-aos-delay="600">
+                <div class="grid grid-cols-2 md:hidden gap-8 mt-16" data-aos="fade-up" data-aos-delay="600">
                     <div>
                         <div class="text-4xl font-bold mb-2">+۵</div>
                         <div class="text-sm">سال تجربه</div>
@@ -502,14 +502,8 @@
         const darkModeIcon = document.getElementById('dark-mode-icon');
         let isDarkMode = false;
         
-        // بررسی حالت ذخیره شده در localStorage
-        if (localStorage.getItem('darkMode') === 'enabled') {
-            enableDarkMode();
-        }
-        
-        darkModeToggle.addEventListener('click', function() {
+        function toggleDarkMode() {
             isDarkMode = !isDarkMode;
-            
             if (isDarkMode) {
                 enableDarkMode();
                 localStorage.setItem('darkMode', 'enabled');
@@ -517,7 +511,19 @@
                 disableDarkMode();
                 localStorage.setItem('darkMode', 'disabled');
             }
-        });
+        }
+        
+        function initializeDarkMode() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'enabled') {
+                enableDarkMode();
+                isDarkMode = true;
+            } else {
+                disableDarkMode();
+                isDarkMode = false;
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
         
         function enableDarkMode() {
             document.body.classList.add('dark-mode');
@@ -528,6 +534,11 @@
             document.body.classList.remove('dark-mode');
             darkModeIcon.textContent = '🌙';
         }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        
+        // تنظیم اولیه حالت تاریک/روشن
+        initializeDarkMode();
         
         // Initialize Swiper
         var swiper = new Swiper(".mySwiper", {
