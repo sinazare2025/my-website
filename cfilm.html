@@ -16,7 +16,7 @@
         @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
 
         .hero-bg {
-            background-image: linear-gradient(to top, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0) 20%), linear-gradient(to right, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0) 50%), url('https://image.tmdb.org/t/p/original/9GvhICFMiRQA82vS6GTkXDWdJvO.jpg');
+            background-image: linear-gradient(to top, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0) 20%), linear-gradient(to right, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0) 50%), url('https://image.tmdb.org/t/p/original/9GvhICFMiRQA82vS6GTkXDWdJvO.jpg'); /* Devil May Cry Background */
             background-size: cover;
             background-position: center top; /* Adjust as needed */
             height: 75vh; /* Adjust height */
@@ -31,14 +31,21 @@
             font-size: 0.9rem;
             display: inline-block;
         }
+        .movie-poster-container {
+            position: relative;
+        }
         .movie-poster {
             transition: transform 0.3s ease;
             border-radius: 8px;
             overflow: hidden; /* Ensure border radius is applied to image */
+            width: 100%;
+            height: auto;
+            aspect-ratio: 2 / 3; /* Maintain poster aspect ratio */
+            object-fit: cover;
         }
-        .movie-poster:hover {
+        .movie-poster-container:hover .movie-poster {
             transform: scale(1.05);
-            border: 2px solid #9fcc37; /* Highlight color from screenshot */
+            border: 2px solid #981b2a; /* Red border on hover */
         }
         .nav-link {
             color: #e5e5e5;
@@ -48,7 +55,7 @@
             color: #bbb;
         }
         .brand-text {
-            color: #9fcc37; /* Green color from screenshot */
+            color: #981b2a; /* Red brand color */
             font-weight: bold;
             font-size: 1.5rem; /* Adjust size */
         }
@@ -68,7 +75,7 @@
             transition: background-color 0.3s ease;
         }
         .play-button-overlay:hover {
-            background-color: rgba(159, 204, 55, 0.8); /* Green hover */
+            background-color: rgba(152, 27, 42, 0.8); /* Red hover */
         }
         .play-button-overlay i {
             color: white;
@@ -84,12 +91,61 @@
             color: #e5e5e5;
         }
         .filter-button {
-            background-color: #9fcc37;
-            color: #111;
+            background-color: #981b2a; /* Red button */
+            color: white;
         }
         .login-button {
-            background-color: #9fcc37;
-            color: #111;
+            background-color: #981b2a; /* Red button */
+            color: white;
+        }
+        .poster-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #e5e5e5;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        .poster-badge.hd {
+            left: auto;
+            right: 8px;
+            background-color: #981b2a; /* Red HD badge */
+        }
+        .view-all-button {
+            background-color: #333;
+            color: #e5e5e5;
+            padding: 4px 12px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            transition: background-color 0.2s ease;
+        }
+        .view-all-button:hover {
+            background-color: #444;
+        }
+        .footer-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: opacity 0.2s ease;
+        }
+        .footer-button:hover {
+             opacity: 0.9;
+        }
+        .telegram-button {
+            background-color: #0088cc;
+            color: white;
+        }
+        .instagram-button {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
         }
     </style>
 </head>
@@ -147,36 +203,167 @@
             </div>
         </section>
 
-        <!-- Movie Carousel Section -->
+        <!-- Featured Movie Carousel Section -->
         <section class="container mx-auto px-6 md:px-10 py-8">
-            <!-- <h2 class="text-xl font-semibold mb-4">فیلم های بیشتر</h2> Could add section title -->
+             <!-- Removed title, posters only -->
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 <!-- Movie Poster 1: Mickey 17 -->
-                <a href="#" class="movie-poster block">
-                    <img src="https://image.tmdb.org/t/p/w500/rFEHLo2kfxSAa0pq9p2TKo9L401.jpg" alt="Mickey 17" class="w-full h-auto object-cover">
-                    <!-- Add title overlay if needed -->
+                <a href="#" class="movie-poster-container block">
+                    <img src="https://image.tmdb.org/t/p/w500/rFEHLo2kfxSAa0pq9p2TKo9L401.jpg" alt="Mickey 17" class="movie-poster">
                 </a>
                  <!-- Movie Poster 2: Daredevil -->
-                 <a href="#" class="movie-poster block">
-                    <img src="https://image.tmdb.org/t/p/w500/igWdMmFt44UvX6QBFs4Sffjgb6G.jpg" alt="Daredevil: Born Again" class="w-full h-auto object-cover">
+                 <a href="#" class="movie-poster-container block">
+                    <img src="https://image.tmdb.org/t/p/w500/igWdMmFt44UvX6QBFs4Sffjgb6G.jpg" alt="Daredevil: Born Again" class="movie-poster">
                 </a>
                  <!-- Movie Poster 3: In the Lost Lands -->
-                 <a href="#" class="movie-poster block">
-                    <img src="https://image.tmdb.org/t/p/w500/v7UFfPN529Z9mSU4BU3ZTDiA5X5.jpg" alt="In the Lost Lands" class="w-full h-auto object-cover">
+                 <a href="#" class="movie-poster-container block">
+                    <img src="https://image.tmdb.org/t/p/w500/v7UFfPN529Z9mSU4BU3ZTDiA5X5.jpg" alt="In the Lost Lands" class="movie-poster">
                 </a>
                  <!-- Movie Poster 4: Devil May Cry -->
-                 <a href="#" class="movie-poster block border-2 border-[#9fcc37]"> <!-- Highlighted -->
-                    <img src="https://image.tmdb.org/t/p/w500/4RkQE9rgrWQh58AOk005Hvq4bE3.jpg" alt="Devil May Cry" class="w-full h-auto object-cover">
+                 <a href="#" class="movie-poster-container block"> 
+                    <img src="https://image.tmdb.org/t/p/w500/4RkQE9rgrWQh58AOk005Hvq4bE3.jpg" alt="Devil May Cry" class="movie-poster border-2 border-[#981b2a]"> <!-- Keep highlight for now -->
                 </a>
-                 <!-- Movie Poster 5: The Handmaid's Tale (Example from other screenshot) -->
-                 <a href="#" class="movie-poster block">
-                    <img src="https://image.tmdb.org/t/p/w500/eepf5DySipq4SqRTW0N2YCROWJE.jpg" alt="The Handmaid's Tale" class="w-full h-auto object-cover">
+                 <!-- Movie Poster 5: The Handmaid's Tale -->
+                 <a href="#" class="movie-poster-container block">
+                    <img src="https://image.tmdb.org/t/p/w500/eepf5DySipq4SqRTW0N2YCROWJE.jpg" alt="The Handmaid's Tale" class="movie-poster">
                 </a>
-                 <!-- Add more posters as needed -->
             </div>
         </section>
 
-         <!-- Filter/Sort Section -->
+        <!-- Updated Movies Section -->
+        <section class="container mx-auto px-6 md:px-10 py-8">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold text-white">فیلم‌های به روز شده</h2>
+                <a href="#" class="view-all-button">مشاهده همه</a>
+            </div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-6">
+                 <!-- Movie Item 1: In the Lost Lands -->
+                 <div class="movie-item">
+                    <a href="#" class="movie-poster-container block mb-2">
+                        <img src="https://image.tmdb.org/t/p/w500/v7UFfPN529Z9mSU4BU3ZTDiA5X5.jpg" alt="In the Lost Lands" class="movie-poster">
+                        <span class="poster-badge">CC</span>
+                        <!-- <span class="poster-badge hd">HD</span> -->
+                    </a>
+                    <h3 class="font-semibold text-sm truncate mb-1">In the Lost Lands</h3>
+                    <div class="flex justify-between text-xs text-gray-400">
+                        <span><i class="far fa-calendar-alt ml-1"></i>2025</span>
+                        <span class="imdb-badge text-[0.7rem] px-1 py-0">?</span> <!-- No IMDb given -->
+                    </div>
+                    <p class="text-xs text-gray-500 mt-1">نسخه رسمی اضافه شد</p>
+                 </div>
+                 <!-- Movie Item 2: The Prosecutor -->
+                 <div class="movie-item">
+                    <a href="#" class="movie-poster-container block mb-2">
+                        <img src="https://image.tmdb.org/t/p/w500/p5NMOAmXDRbhVcD68T7tJZjOdDs.jpg" alt="The Prosecutor" class="movie-poster">
+                        <span class="poster-badge">CC</span>
+                    </a>
+                    <h3 class="font-semibold text-sm truncate mb-1">The Prosecutor</h3>
+                     <div class="flex justify-between text-xs text-gray-400">
+                        <span><i class="far fa-calendar-alt ml-1"></i>2024</span>
+                        <span class="imdb-badge text-[0.7rem] px-1 py-0">7/10</span>
+                    </div>
+                     <p class="text-xs text-gray-500 mt-1">نسخه BluRay اضافه شد</p>
+                 </div>
+                <!-- Movie Item 3: Bring Them Down -->
+                 <div class="movie-item">
+                    <a href="#" class="movie-poster-container block mb-2">
+                        <img src="https://image.tmdb.org/t/p/w500/nTPFkUyAR4HoNB1YMB3nJbnvs66.jpg" alt="Bring Them Down" class="movie-poster">
+                        <span class="poster-badge">CC</span>
+                    </a>
+                    <h3 class="font-semibold text-sm truncate mb-1">Bring Them Down</h3>
+                     <div class="flex justify-between text-xs text-gray-400">
+                        <span><i class="far fa-calendar-alt ml-1"></i>2024</span>
+                        <span class="imdb-badge text-[0.7rem] px-1 py-0">7/10</span>
+                    </div>
+                     <p class="text-xs text-gray-500 mt-1">دوبله فارسی اضافه شد</p>
+                 </div>
+                <!-- Movie Item 4: Novocaine -->
+                 <div class="movie-item">
+                    <a href="#" class="movie-poster-container block mb-2">
+                        <img src="https://image.tmdb.org/t/p/w500/2Oqnqsgg8zuHCOdLWHXryw0fsnN.jpg" alt="Novocaine" class="movie-poster">
+                        <span class="poster-badge">CC</span>
+                    </a>
+                    <h3 class="font-semibold text-sm truncate mb-1">Novocaine</h3>
+                     <div class="flex justify-between text-xs text-gray-400">
+                        <span><i class="far fa-calendar-alt ml-1"></i>2025</span>
+                        <span class="imdb-badge text-[0.7rem] px-1 py-0">7/10</span>
+                    </div>
+                     <p class="text-xs text-gray-500 mt-1">نسخه رسمی اضافه شد</p>
+                 </div>
+                <!-- Movie Item 5: A Working Man -->
+                 <div class="movie-item">
+                    <a href="#" class="movie-poster-container block mb-2">
+                        <img src="https://image.tmdb.org/t/p/w500/7uZmz77uN7zV9dGzQ98X5hQ5O7u.jpg" alt="A Working Man" class="movie-poster">
+                        <span class="poster-badge">CC</span>
+                        <span class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/70 text-white text-xs px-2 py-1 rounded">اکشن هیجان انگیز</span>
+                    </a>
+                    <h3 class="font-semibold text-sm truncate mb-1">A Working Man</h3>
+                     <div class="flex justify-between text-xs text-gray-400">
+                        <span><i class="far fa-calendar-alt ml-1"></i>2025</span>
+                         <span class="imdb-badge text-[0.7rem] px-1 py-0">?</span> <!-- No IMDb given -->
+                    </div>
+                     <p class="text-xs text-gray-500 mt-1">زیرنویس فارسی اضافه شد</p>
+                 </div>
+                <!-- Movie Item 6: Deva -->
+                 <div class="movie-item">
+                    <a href="#" class="movie-poster-container block mb-2">
+                        <img src="https://image.tmdb.org/t/p/w500/q1PDaXI8nxNg2592kE7A3hxwupb.jpg" alt="Deva" class="movie-poster">
+                        <span class="poster-badge">CC</span>
+                    </a>
+                    <h3 class="font-semibold text-sm truncate mb-1">Deva</h3>
+                     <div class="flex justify-between text-xs text-gray-400">
+                        <span><i class="far fa-calendar-alt ml-1"></i>2025</span>
+                        <span class="imdb-badge text-[0.7rem] px-1 py-0">7/10</span>
+                    </div>
+                     <p class="text-xs text-gray-500 mt-1">دوبله فارسی اضافه شد</p>
+                 </div>
+                <!-- Add more movie items as needed -->
+            </div>
+        </section>
+
+        <!-- Updated Series Section -->
+        <section class="container mx-auto px-6 md:px-10 py-8">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold text-white">سریال‌های به روز شده</h2>
+                <a href="#" class="view-all-button">مشاهده همه</a>
+            </div>
+             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-4 gap-y-6">
+                 <!-- Series Item 1: Example -->
+                 <div class="series-item">
+                     <a href="#" class="movie-poster-container block mb-2">
+                         <img src="https://image.tmdb.org/t/p/w500/uMPdUQHaMKIfOQRERLNNXTrS23s.jpg" alt="Example Series" class="movie-poster">
+                         <span class="poster-badge">CC</span>
+                         <span class="poster-badge hd">HD</span>
+                     </a>
+                     <h3 class="font-semibold text-sm truncate mb-1">Example Series Title</h3>
+                      <div class="flex justify-between text-xs text-gray-400">
+                         <span><i class="far fa-calendar-alt ml-1"></i>2024</span>
+                         <span class="imdb-badge text-[0.7rem] px-1 py-0">8/10</span>
+                     </div>
+                      <p class="text-xs text-gray-500 mt-1">قسمت جدید اضافه شد</p>
+                  </div>
+                 <!-- Add more series items based on screenshots or data -->
+                  <div class="series-item">
+                     <a href="#" class="movie-poster-container block mb-2">
+                         <img src="https://image.tmdb.org/t/p/w500/zDiMt4lGrVsq5FuwKNrR3iWs13v.jpg" alt="Another Series" class="movie-poster">
+                         <span class="poster-badge">CC</span>
+                     </a>
+                     <h3 class="font-semibold text-sm truncate mb-1">Another Series</h3>
+                      <div class="flex justify-between text-xs text-gray-400">
+                         <span><i class="far fa-calendar-alt ml-1"></i>2023</span>
+                         <span class="imdb-badge text-[0.7rem] px-1 py-0">9/10</span>
+                     </div>
+                      <p class="text-xs text-gray-500 mt-1">فصل جدید اضافه شد</p>
+                  </div>
+                  <!-- ... Add 4 more placeholders ... -->
+                  <div class="series-item"> <a href="#" class="movie-poster-container block mb-2"> <img src="https://placehold.co/500x750/1a1a1a/444444?text=Series+3" alt="Series 3" class="movie-poster"> <span class="poster-badge">CC</span> </a> <h3 class="font-semibold text-sm truncate mb-1">Series 3</h3> <div class="flex justify-between text-xs text-gray-400"><span><i class="far fa-calendar-alt ml-1"></i>2024</span> <span class="imdb-badge text-[0.7rem] px-1 py-0">7/10</span></div> <p class="text-xs text-gray-500 mt-1">زیرنویس فارسی</p> </div>
+                  <div class="series-item"> <a href="#" class="movie-poster-container block mb-2"> <img src="https://placehold.co/500x750/1a1a1a/444444?text=Series+4" alt="Series 4" class="movie-poster"> <span class="poster-badge">CC</span> <span class="poster-badge hd">HD</span> </a> <h3 class="font-semibold text-sm truncate mb-1">Series 4</h3> <div class="flex justify-between text-xs text-gray-400"><span><i class="far fa-calendar-alt ml-1"></i>2024</span> <span class="imdb-badge text-[0.7rem] px-1 py-0">8/10</span></div> <p class="text-xs text-gray-500 mt-1">دوبله فارسی</p> </div>
+                  <div class="series-item"> <a href="#" class="movie-poster-container block mb-2"> <img src="https://placehold.co/500x750/1a1a1a/444444?text=Series+5" alt="Series 5" class="movie-poster"> <span class="poster-badge">CC</span> </a> <h3 class="font-semibold text-sm truncate mb-1">Series 5</h3> <div class="flex justify-between text-xs text-gray-400"><span><i class="far fa-calendar-alt ml-1"></i>2023</span> <span class="imdb-badge text-[0.7rem] px-1 py-0">6/10</span></div> <p class="text-xs text-gray-500 mt-1">قسمت جدید</p> </div>
+                  <div class="series-item"> <a href="#" class="movie-poster-container block mb-2"> <img src="https://placehold.co/500x750/1a1a1a/444444?text=Series+6" alt="Series 6" class="movie-poster"> <span class="poster-badge">CC</span> <span class="poster-badge hd">HD</span> </a> <h3 class="font-semibold text-sm truncate mb-1">Series 6</h3> <div class="flex justify-between text-xs text-gray-400"><span><i class="far fa-calendar-alt ml-1"></i>2024</span> <span class="imdb-badge text-[0.7rem] px-1 py-0">9/10</span></div> <p class="text-xs text-gray-500 mt-1">فصل جدید</p> </div>
+             </div>
+         </section>
+
+         <!-- Filter/Sort Section (Keeping this at the bottom for now) -->
         <section class="filter-section py-4 mt-8">
              <div class="container mx-auto px-6 md:px-10 flex flex-wrap items-center justify-between gap-4">
                 <div class="flex flex-wrap gap-4">
@@ -208,11 +395,23 @@
          </section>
     </main>
 
-    <!-- Footer Placeholder -->
+    <!-- Footer -->
     <footer class="py-6 text-center text-gray-500 text-sm mt-12">
         <div class="container mx-auto px-6 md:px-10">
+             <!-- Footer Links -->
+             <div class="max-w-xs mx-auto mb-6">
+                <a href="#" class="footer-button telegram-button">
+                    <span>کانال تلگرام</span>
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                 <a href="#" class="footer-button instagram-button">
+                    <span>صفحه اینستاگرام</span>
+                     <i class="fab fa-instagram"></i>
+                 </a>
+             </div>
+             <!-- Copyright -->
              کلیه حقوق مادی و معنوی این وبسایت متعلق به سی فیلم میباشد. © 2024
-             <!-- Add social links etc. if needed -->
+             <!-- Add original logo/brand mark from screenshot if desired -->
         </div>
     </footer>
 
