@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سینا زارع | طراح گرافیک و توسعه‌دهنده وب</title>
+    <meta name="description" content="سینا زارع، گرافیست و برنامه‌نویس حرفه‌ای با سال‌ها تجربه در طراحی گرافیک و توسعه وب. مشاهده نمونه‌کارها، ویدئوها و تماس با من.">
+    <meta name="keywords" content="سینا زارع, Sina Zare, گرافیست, برنامه‌نویس, طراحی گرافیک, توسعه وب, نمونه‌کار, ویدئو, تماس">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    
+    <style>
+        /* حالت شب */
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-white {
+            background-color: #2d3748;
+            color: #e2e8f0;
+        }
+        .dark-mode .text-gray-600 {
+            color: #cbd5e0;
+        }
+        .dark-mode .text-gray-800 {
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-red-800 {
+            background-color: #742a2a;
+        }
+        .dark-mode .bg-gray-50 {
+            background-color: #2d3748;
+        }
+        .dark-mode .text-red-800 {
+            color: #fc8181;
+        }
+        .dark-mode .hover\:bg-red-900:hover {
+            background-color: #63171b;
+        }
+        
+        .hover\:scale-105:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+        .transition-all {
+            transition: all 0.3s ease-in-out;
+        }
+        .portfolio-image {
+            width: 100%;
+            height: auto;
+            max-height: 500px;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+        .logo {
+            font-family: 'Arial', sans-serif;
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: #981b2a;
+            display: flex;
+            align-items: center;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #981b2a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 10px;
+            font-weight: bold;
+        }
+        #mute-btn, #dark-mode-toggle {
+            transition: all 0.3s ease;
+        }
+        .floating-btn {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* استایل اسلایدر */
+        .swiper {
+            width: 100%;
+            padding: 20px 0;
+        }
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: auto;
+            height: auto;
+        }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 0.5rem;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: #981b2a;
+            background-color: rgba(255,255,255,0.8);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 20px;
+        }
+        .dark-mode .swiper-button-next, .dark-mode .swiper-button-prev {
+            background-color: rgba(45,55,72,0.8);
+        }
+        .portfolio-description {
+            background-color: rgba(152, 27, 42, 0.1);
+            padding: 10px;
+            border-radius: 0.5rem;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- عنصر صوتی برای پخش موزیک -->
+    <audio id="bg-music" autoplay loop>
+        <source src="https://dl.beatmastering.ir/BEAT/beat-deep-house/4.mp3" type="audio/mpeg">
+        مرورگر شما از پخش خودکار صدا پشتیبانی نمی‌کند.
+    </audio>
+
+    <!-- هدر جدید با منوی ناوبری -->
+    <header class="bg-white dark:bg-gray-800 shadow-lg fixed w-full top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- لوگو -->
+            <div class="flex items-center">
+                    <div class="logo flex-row-reverse">
+                        <span class="text-red-800 dark:text-red-400">سینا زارع</span>
+                        <div class="logo-icon">س</div>
+                    </div>
+                </div>
+
+                <!-- منوی اصلی -->
+                <nav class="hidden md:flex space-x-8 space-x-reverse">
+                    <a href="#skills" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">مهارت‌ها</a>
+                    <a href="#portfolio" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نمونه کارها</a>
+                    <a href="vpn.html" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">وی‌پی‌ان رایگان</a>
+                    <a href="#testimonials" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نظرات</a>
+                    <a href="#videos" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">ویدئوها</a>
+                    <a href="#contact-info" class="text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">تماس</a>
+                </nav>
+
+                <!-- دکمه‌های سمت چپ -->
+                <div class="flex items-center space-x-4 space-x-reverse">
+                    <button id="dark-mode-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <span id="dark-mode-icon">🌙</span>
+                </button>
+                    <a href="tel:+989964508265" class="bg-red-800 text-white px-4 py-2 rounded-lg hover:bg-red-900 transition-colors hidden md:block">تماس با من</a>
+                </div>
+
+                <!-- دکمه منو موبایل -->
+                <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- منوی موبایل -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white dark:bg-gray-800 shadow-lg">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#skills" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">مهارت‌ها</a>
+                <a href="#portfolio" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نمونه کارها</a>
+                <a href="vpn.html" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">وی‌پی‌ان رایگان</a>
+                <a href="#testimonials" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">نظرات</a>
+                <a href="#videos" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">ویدئوها</a>
+                <a href="#contact-info" class="block text-gray-700 dark:text-gray-300 hover:text-red-800 dark:hover:text-red-400 transition-colors">تماس</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- فاصله‌گذار برای هدر ثابت -->
+    <div class="h-16"></div>
+    
+    <!-- محتوای اصلی صفحه -->
+    <main class="container mx-auto px-4">
+        <!-- بخش قهرمان -->
+        <section class="relative h-[80vh] flex items-center justify-center mb-12 overflow-hidden">
+            <!-- پس‌زمینه متحرک -->
+            <div class="absolute inset-0 bg-gradient-to-r from-red-800 to-red-900 opacity-90"></div>
+            <div class="absolute inset-0">
+                <div class="absolute inset-0 bg-[url('https://i.pinimg.com/originals/8c/74/0b/8c740bc13bd5a0a19c24b37c5278aa37.gif')] bg-cover bg-center opacity-20"></div>
+            </div>
+            
+            <!-- محتوای اصلی -->
+            <div class="relative z-10 text-center text-white">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6" data-aos="fade-up">سینا زارع</h1>
+                <p class="text-xl md:text-2xl mb-8" data-aos="fade-up" data-aos-delay="200">طراح گرافیک و توسعه‌دهنده خلاق وب</p>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 md:space-x-reverse" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#portfolio" class="bg-white text-red-800 px-8 py-3 rounded-lg font-bold hover:bg-red-50 transition-colors">مشاهده نمونه کارها</a>
+                    <a href="#contact-info" class="bg-transparent border-2 border-white text-white px-8 py-3 rounded-lg font-bold hover:bg-white hover:text-red-800 transition-colors">تماس با من</a>
+                </div>
+                
+                <!-- آمار و ارقام -->
+                <div class="grid grid-cols-2 md:hidden gap-8 mt-16" data-aos="fade-up" data-aos-delay="600">
+                    <div>
+                        <div class="text-4xl font-bold mb-2">+۵</div>
+                        <div class="text-sm">سال تجربه</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">+۵۰</div>
+                        <div class="text-sm">پروژه موفق</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">+۳۰</div>
+                        <div class="text-sm">مشتری راضی</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-bold mb-2">+۱۰۰</div>
+                        <div class="text-sm">طراحی خلاقانه</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- موج متحرک پایین -->
+            <div class="absolute bottom-0 left-0 w-full">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="w-full">
+                    <path fill="#ffffff" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- بخش مهارت‌ها -->
+        <section id="skills" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-red-800 mb-6">مهارت‌ها</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold text-red-800 mb-2">🎨 طراحی گرافیک</h3>
+                    <p class="text-gray-600">طراحی لوگو، بنر، پوستر و سایر عناصر گرافیکی با بالاترین کیفیت.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold text-red-800 mb-2">💻 توسعه وب</h3>
+                    <p class="text-gray-600">طراحی و توسعه وب‌سایت‌های مدرن و واکنش‌گرا با استفاده از آخرین تکنولوژی‌ها.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <h3 class="text-xl font-semibold text-red-800 mb-2">📱 طراحی رابط کاربری (UI/UX)</h3>
+                    <p class="text-gray-600">طراحی رابط کاربری جذاب و کاربرپسند برای وب و موبایل.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش نمونه کارها - طراحی گرافیک -->
+        <section id="portfolio" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-red-800 mb-6">نمونه کارها - طراحی گرافیک</h2>
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <!-- نمونه کار 1 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/cd/91/d9/cd91d99492e98bcd737c67c1872e6842.jpg" alt="طراحی تامنیل یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی تامنیل یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 2 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/0f/cc/57/0fcc57fdda2acf9cbfaae49061b50f89.jpg" alt="طراحی عکس پروفایل" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی عکس پروفایل
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 3 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/69/a5/41/69a5416a1401a01d5b2e36b5a8c0dd3e.jpg" alt="طراحی چنل آرت یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی چنل آرت یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 4 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/bc/4c/37/bc4c377378b2ed542ad7b0e987af797f.jpg" alt="طراحی تامنیل یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی تامنیل یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 5 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/53/0d/4d/530d4db4e793294a20eb0289675d386d.jpg" alt="طراحی عکس پروفایل" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی عکس پروفایل
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 6 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/59/e6/8e/59e68eba3c3555b9632e1c90ae2acba3.jpg" alt="طراحی چنل آرت یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی چنل آرت یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 7 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/3a/ce/d8/3aced8c34a898484a1daeeae7a686239.jpg" alt="طراحی تامنیل یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی تامنیل یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 8 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/c7/a2/4e/c7a24e544b427a00ea7da5bf80fcfaa2.jpg" alt="طراحی عکس پروفایل" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی عکس پروفایل
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 9 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/07/d9/5e/07d95ef06e681c377265a58ae9b76cea.jpg" alt="طراحی چنل آرت یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی چنل آرت یوتیوب
+                        </div>
+                    </div>
+                    
+                    <!-- نمونه کار 10 -->
+                    <div class="swiper-slide bg-white p-4 rounded-lg shadow-md">
+                        <img src="https://i.pinimg.com/736x/fd/38/b0/fd38b0aa303d594654edd93b8dfea991.jpg" alt="طراحی تامنیل یوتیوب" class="w-full h-auto">
+                        <div class="portfolio-description text-red-800">
+                            طراحی تامنیل یوتیوب
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- بخش نظرات مشتریان -->
+        <section id="testimonials" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-red-800 mb-6">نظرات مشتریان</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://i.pinimg.com/736x/ce/d4/4a/ced44a15c6f187b76d6479a03bdd773f.jpg" alt="عکس مشتری" class="testimonial-img mb-4">
+                    <p class="text-gray-600 text-center">"سینا زارع یک گرافیست و برنامه‌نویس فوق‌العاده است. کارش را با دقت و خلاقیت انجام می‌دهد."</p>
+                    <p class="text-gray-800 font-semibold mt-2 text-center">- علی محمدی</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://i.pinimg.com/736x/18/c2/96/18c29680423dc8ec13e290b7bd9917a5.jpg" alt="عکس مشتری" class="testimonial-img mb-4">
+                    <p class="text-gray-600 text-center">"با سینا زارع همکاری کردم و از نتیجه کار بسیار راضی هستم. توصیه می‌کنم."</p>
+                    <p class="text-gray-800 font-semibold mt-2 text-center">- مریم رضایی</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md hover:scale-105 transition-all">
+                    <img src="https://i.pinimg.com/736x/fe/a4/56/fea4568cdabdfb5c3ade0e7fe435858d.jpg" alt="عکس مشتری" class="testimonial-img mb-4">
+                    <p class="text-gray-600 text-center">"طراحی‌های سینا زارع بسیار خلاقانه و کاربردی هستند. حتماً با او کار کنید."</p>
+                    <p class="text-gray-800 font-semibold mt-2 text-center">- حسین علیزاده</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- بخش ویدئوها -->
+        <section id="videos" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-red-800 mb-6">ویدئوها</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/C9MiG9OrktA" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/qEQs7cYsdsQ" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
+                <iframe width="100%" height="200" src="https://www.youtube.com/embed/Ya132VVMwLg" allowfullscreen class="rounded-lg shadow-md hover:scale-105 transition-all" title="ویدئوی نمونه کار سینا زارع"></iframe>
+            </div>
+        </section>
+
+        <!-- بخش اطلاعات تماس -->
+        <section id="contact-info" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-red-800 mb-6">اطلاعات تماس</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <p class="text-gray-600 mb-4">برای تماس با من می‌توانید از طریق روش‌های زیر اقدام کنید:</p>
+                <ul class="space-y-2">
+                    <li class="flex items-center">
+                        <span class="ml-2">📞 شماره تماس:</span>
+                        <a href="tel:+989964508265" class="text-red-800 hover:text-red-900">+98 996 450 8265</a>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="ml-2">📸 پیج اینستاگرام:</span>
+                        <a href="https://www.instagram.com/cna.za/?utm_source=qr&r=nametag" target="_blank" class="text-red-800 hover:text-red-900">cna.za</a>
+                    </li>
+                    <li class="flex items-center">
+                        <span class="ml-2">📱 واتساپ:</span>
+                        <a href="https://wa.me/989964508265" target="_blank" class="text-red-800 hover:text-red-900">چت در واتساپ</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- بخش درباره من -->
+        <section id="about" class="mb-12" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-red-800 mb-6">درباره من</h2>
+            <div class="bg-white p-6 rounded-lg shadow-md flex flex-col md:flex-row items-center">
+                <img src="https://i.pinimg.com/280x280_RS/45/29/95/452995766877f516ff801129df207da8.jpg" alt="عکس سینا زارع" class="w-32 h-32 rounded-full mb-4 md:mb-0 md:mr-6">
+                <div>
+                    <p class="text-gray-600">
+                        من سینا زارع، گرافیست و برنامه‌نویس با بیش از ۵ سال تجربه در زمینه طراحی گرافیک و توسعه وب هستم. تخصص من در ایجاد طرح‌های خلاقانه و کاربردی است که هم زیبایی و هم عملکرد را به ارمغان می‌آورند. من عاشق حل مشکلات طراحی و ایجاد تجربه‌های کاربری بی‌نظیر هستم.
+                    </p>
+                    <p class="text-gray-600 mt-4">
+                        در طول این سال‌ها با برندها و شرکت‌های مختلفی همکاری داشته‌ام و پروژه‌های متعددی را با موفقیت به پایان رسانده‌ام. هدف من ارائه کار با کیفیت و رضایت کامل مشتری است.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- فوتر صفحه -->
+    <footer class="bg-red-800 text-white py-4 text-center shadow-lg">
+        <div class="container mx-auto">
+            <p>تمامی حقوق محفوظ است. © 2024 | طراحی شده توسط سینا زارع</p>
+            <div class="flex justify-center mt-2 space-x-4">
+                <a href="https://www.instagram.com/cna.za/?utm_source=qr&r=nametag" target="_blank" class="text-white hover:text-gray-200">اینستاگرام</a>
+                <a href="https://wa.me/989964508265" target="_blank" class="text-white hover:text-gray-200">واتساپ</a>
+                <a href="tel:+989964508265" class="text-white hover:text-gray-200">تماس تلفنی</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- دکمه شناور برای میوت کردن صدا -->
+    <button id="mute-btn" class="fixed bottom-24 right-6 bg-red-800 text-white p-4 rounded-full shadow-lg hover:bg-red-900 transition-colors floating-btn">
+        🔇 بی صدا
+    </button>
+
+    <!-- اسکریپت AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- اسکریپت Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        AOS.init();
+        
+        // کنترل پخش موزیک و دکمه میوت
+        const bgMusic = document.getElementById('bg-music');
+        const muteBtn = document.getElementById('mute-btn');
+        let isMuted = false;
+
+        // تنظیمات اولیه برای پخش خودکار (با توجه به محدودیت‌های مرورگرها)
+        document.addEventListener('DOMContentLoaded', function() {
+            // تلاش برای پخش خودکار با تاخیر
+            setTimeout(() => {
+                bgMusic.play().catch(e => {
+                    console.log('پخش خودکار صدا مسدود شده است:', e);
+                    // نمایش پیام به کاربر برای تعامل با صفحه
+                    alert('لطفاً برای شنیدن موزیک پس‌زمینه، یک بار با صفحه تعامل داشته باشید (کلیک کنید)');
+                });
+            }, 1000);
+        });
+
+        // کلیک روی دکمه میوت
+        muteBtn.addEventListener('click', function() {
+            isMuted = !isMuted;
+            
+            if(isMuted) {
+                bgMusic.pause();
+                muteBtn.innerHTML = '🔈 روشن';
+                muteBtn.classList.remove('bg-red-800');
+                muteBtn.classList.add('bg-gray-500');
+            } else {
+                bgMusic.play();
+                muteBtn.innerHTML = '🔇 بی صدا';
+                muteBtn.classList.remove('bg-gray-500');
+                muteBtn.classList.add('bg-red-800');
+            }
+        });
+
+        // فعال کردن پخش صدا پس از اولین تعامل کاربر
+        document.body.addEventListener('click', function firstInteraction() {
+            bgMusic.play().then(() => {
+                console.log('پخش صدا پس از تعامل کاربر فعال شد');
+            }).catch(e => {
+                console.log('خطا در پخش صدا:', e);
+            });
+            document.body.removeEventListener('click', firstInteraction);
+        });
+        
+        // حالت شب/روز
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        const darkModeIcon = document.getElementById('dark-mode-icon');
+        let isDarkMode = false;
+        
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            if (isDarkMode) {
+                enableDarkMode();
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                disableDarkMode();
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+        
+        function initializeDarkMode() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+            if (savedDarkMode === 'enabled') {
+                enableDarkMode();
+                isDarkMode = true;
+            } else {
+                disableDarkMode();
+                isDarkMode = false;
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        }
+        
+        function enableDarkMode() {
+            document.body.classList.add('dark-mode');
+            darkModeIcon.textContent = '☀️';
+        }
+        
+        function disableDarkMode() {
+            document.body.classList.remove('dark-mode');
+            darkModeIcon.textContent = '🌙';
+        }
+        
+        darkModeToggle.addEventListener('click', toggleDarkMode);
+        
+        // تنظیم اولیه حالت تاریک/روشن
+        initializeDarkMode();
+        
+        // Initialize Swiper
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 20,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 40,
+                },
+            },
+        });
+
+        // منوی موبایل
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // اسکرول نرم به بخش‌ها
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // بستن منوی موبایل
+                    mobileMenu.classList.add('hidden');
+                    
+                    // اسکرول به بخش مورد نظر
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // تغییر استایل هدر هنگام اسکرول
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+            } else {
+                header.classList.remove('shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>
