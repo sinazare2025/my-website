@@ -156,32 +156,64 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #222; /* Dark background for dropdown */
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-            border-radius: 5px;
-            padding: 8px 0;
-            top: 100%; /* Position below the nav link */
+            background-color: #1f1f1f; /* Slightly lighter dark background like example */
+            min-width: 200px; /* Increased width */
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+            z-index: 51; /* Ensure it's above header */
+            border-radius: 8px; /* Rounded corners like example */
+            padding: 0; /* Remove padding, apply to items */
+            top: 100%; /* Position directly below nav link - Removed 10px gap */
             left: 50%;
             transform: translateX(-50%);
+            border: 1px solid #333; /* Subtle border */
+            overflow: hidden; /* Ensure border radius applies to children */
+        }
+        .dropdown-content .dropdown-header {
+            background-color: #a3e635; /* Lime green like example */
+            color: #1f1f1f; /* Dark text on green */
+            padding: 10px 16px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.95rem;
         }
         .dropdown-content a {
             color: #ccc;
-            padding: 10px 16px;
+            padding: 12px 16px; /* Slightly more padding */
             text-decoration: none;
-            display: block;
+            display: flex; /* Use flex for alignment */
+            align-items: center; /* Align icon and text */
+            justify-content: flex-end; /* Align text to right */
             text-align: right;
             font-size: 0.9rem;
             white-space: nowrap;
+            background-color: #2a2a2a; /* Darker item background */
+            border-top: 1px solid #383838; /* Separator */
+            transition: background-color 0.2s ease;
         }
-        .dropdown-content a:hover { background-color: #333 } /* Darker background on hover */
+         .dropdown-content a i {
+            margin-left: 8px; /* Space between icon and text */
+             width: 16px; /* Fixed width for icon alignment */
+             text-align: center;
+        }
+        .dropdown-content a:hover {
+            background-color: #383838; /* Slightly lighter on hover */
+            color: #fff;
+         }
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        .nav-link i {
-            margin-left: 5px; /* Space for dropdown icon */
+        .nav-link i.fa-chevron-down {
+            margin-right: 5px; /* Space before dropdown icon */
+            transition: transform 0.2s ease;
         }
+        .dropdown:hover .nav-link i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+         /* Add styles for icons in main nav */
+        nav .nav-link i:not(.fa-chevron-down) {
+             margin-left: 6px;
+             color: #a3e635; /* Lime green for nav icons */
+         }
     </style>
 </head>
 <body class="bg-black text-gray-200">
@@ -193,21 +225,24 @@
             <div class="flex items-center space-x-8 space-x-reverse">
                 <a href="#" class="brand-text">سی فیلم</a>
                 <nav class="hidden md:flex space-x-5 space-x-reverse items-center">
-                    <a href="#" class="nav-link hover:text-gray-400">صفحه اصلی</a>
+                    <a href="#" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-home"></i>صفحه اصلی</a>
                     <div class="dropdown">
                         <a href="#" class="nav-link hover:text-gray-400 flex items-center">
+                            <i class="fas fa-layer-group"></i> <!-- Category Icon -->
                             دسته‌بندی ها
-                            <i class="fas fa-chevron-down text-xs ml-1"></i> <!-- Dropdown Icon -->
+                            <i class="fas fa-chevron-down text-xs ml-1"></i>
                         </a>
                         <div class="dropdown-content">
-                            <a href="#">ژانر فیلم</a>
-                            <a href="#">ژانر سریال</a>
-                            <a href="#">باکس آفیس</a>
-                            <a href="#">250 فیلم برتر</a>
+                            <div class="dropdown-header">بخش ها</div>
+                            <a href="#"><i class="fas fa-film"></i>ژانر فیلم</a>
+                            <a href="#"><i class="fas fa-tv"></i>ژانر سریال</a>
+                             <!-- Add other links like example if needed -->
+                             <!-- <a href="#"><i class="fas fa-fire"></i>باکس آفیس</a> -->
+                             <!-- <a href="#"><i class="fas fa-trophy"></i>250 فیلم برتر</a> -->
                         </div>
                     </div>
-                    <a href="#" class="nav-link hover:text-gray-400">بازیگران</a>
-                    <a href="#" class="nav-link hover:text-gray-400"><i class="fas fa-crown text-yellow-400 ml-1"></i>خرید اشتراک</a>
+                    <a href="#" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-users"></i>بازیگران</a>
+                    <a href="#" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-crown text-yellow-400"></i>خرید اشتراک</a>
                 </nav>
         </div>
 
