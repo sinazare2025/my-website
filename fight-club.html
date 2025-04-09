@@ -108,6 +108,20 @@
              margin-left: 6px;
              color: #a3e635;
          }
+        /* Add style for online play button */
+        .online-play-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: background-color 0.2s ease;
+        }
+        .online-play-btn:hover {
+            background-color: #2980b9;
+        }
     </style>
 </head>
 <body class="bg-black text-gray-200">
@@ -132,14 +146,9 @@
                              <!-- Add other links if needed -->
                         </div>
                     </div>
-                    <a href="#" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-users"></i>بازیگران</a>
-                    <a href="#" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-crown text-yellow-400"></i>خرید اشتراک</a>
                 </nav>
              </div>
              <div class="flex items-center space-x-5 space-x-reverse">
-                <button class="text-gray-300 hover:text-white"><i class="fas fa-search text-xl"></i></button>
-                <button class="text-gray-300 hover:text-white"><i class="fas fa-bell text-xl"></i></button>
-                <a href="#" class="login-button px-4 py-1.5 rounded-md font-semibold text-sm">ورود/ثبت‌نام</a>
                  <button class="md:hidden text-gray-300 hover:text-white"><i class="fas fa-bars text-xl"></i></button>
              </div>
         </div>
@@ -252,24 +261,26 @@
 
         <!-- Download Links Section -->
         <section class="download-section info-section">
-            <h2><i class="fas fa-download mr-2 text-red-400"></i>لینک‌ دانلود (دوبله فارسی - بدون سانسور)</h2>
+            <h2><i class="fas fa-download mr-2 text-red-400"></i>لینک‌های دانلود (دوبله فارسی - بدون سانسور)</h2>
             <div class="download-links">
                 <table>
                     <thead>
                         <tr>
                             <th>کیفیت</th>
                             <th>لینک دانلود</th>
+                            <th>پخش آنلاین</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td><span class="quality-badge">1080p</span> BluRay Full HD</td>
                             <td><a href="https://5f8u2z8mn5qjqvfdxs59z5g6aw8djtnew26.kinguploadf2m15.info/aG5p/Film/New-Server/1999/Fight.Club.1999.1080p.Farsi.Dubbed.Film9.mkv">دانلود</a></td>
+                            <td><a href="https://5f8u2z8mn5qjqvfdxs59z5g6aw8djtnew26.kinguploadf2m15.info/aG5p/Film/New-Server/1999/Fight.Club.1999.1080p.Farsi.Dubbed.Film9.mkv" class="play-button">تماشا</a></td>
                         </tr>
                         <!-- Add other quality links if available -->
-                        <tr> <td><span class="quality-badge">1080p</span> x265</td> <td><a>لینک موجود نیست</a></td> </tr>
-                        <tr> <td><span class="quality-badge">720p</span> BluRay</td> <td><a>لینک موجود نیست</a></td> </tr>
-                        <tr> <td><span class="quality-badge">480p</span> BluRay</td> <td><a>لینک موجود نیست</a></td> </tr>
+                        <tr> <td><span class="quality-badge">1080p</span> x265</td> <td><a>لینک موجود نیست</a></td> <td>-</td> </tr>
+                        <tr> <td><span class="quality-badge">720p</span> BluRay</td> <td><a>لینک موجود نیست</a></td> <td>-</td> </tr>
+                        <tr> <td><span class="quality-badge">480p</span> BluRay</td> <td><a>لینک موجود نیست</a></td> <td>-</td> </tr>
                     </tbody>
                 </table>
             </div>
