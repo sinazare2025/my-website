@@ -46,19 +46,98 @@
         .download-links td a:hover { color: #5dade2; }
         .download-links .quality-badge { background-color: #555; color: #eee; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; display: inline-block; margin-right: 8px; }
         .download-links .episode-number { font-weight: bold; color: #ddd; }
+
+        /* Add dropdown styles if not already present */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1f1f1f;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+            z-index: 51;
+            border-radius: 8px;
+            padding: 0;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+        .dropdown-content .dropdown-header {
+            background-color: #a3e635;
+            color: #1f1f1f;
+            padding: 10px 16px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        .dropdown-content a {
+            color: #ccc;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: right;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            background-color: #2a2a2a;
+            border-top: 1px solid #383838;
+            transition: background-color 0.2s ease;
+        }
+         .dropdown-content a i {
+            margin-left: 8px;
+             width: 16px;
+             text-align: center;
+        }
+        .dropdown-content a:hover {
+            background-color: #383838;
+            color: #fff;
+         }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .nav-link i.fa-chevron-down {
+            margin-right: 5px;
+            transition: transform 0.2s ease;
+        }
+        .dropdown:hover .nav-link i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        nav .nav-link i:not(.fa-chevron-down) {
+             margin-left: 6px;
+             color: #a3e635;
+         }
     </style>
 </head>
 <body class="bg-black text-gray-200">
 
-    <!-- Header (کپی شده از cfilm.html) -->
-    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 py-3 px-6 md:px-10"> <!-- تغییر به sticky برای ماندن در بالا هنگام اسکرول -->
+    <!-- Header (Updated to match cfilm.html) -->
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 py-3 px-6 md:px-10">
         <div class="container mx-auto flex items-center justify-between">
             <div class="flex items-center space-x-8 space-x-reverse">
-                <a href="cfilm.html" class="brand-text">سی فیلم</a> <!-- لینک به صفحه اصلی فیلم -->
-                <nav class="hidden md:flex space-x-5 space-x-reverse">
-                     <a href="cfilm.html" class="nav-link hover:text-gray-400">صفحه اصلی</a> <!-- لینک‌ها اصلاح شوند یا حذف شوند -->
-                     <a href="#" class="nav-link hover:text-gray-400">دسته‌بندی ها</a>
-                     <a href="#" class="nav-link hover:text-gray-400">ژانرها</a> <!-- مثال -->
+                <a href="cfilm.html" class="brand-text">سی فیلم</a> <!-- Link to main page -->
+                <nav class="hidden md:flex space-x-5 space-x-reverse items-center">
+                     <a href="cfilm.html" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-home"></i>صفحه اصلی</a>
+                     <div class="dropdown">
+                        <a href="#" class="nav-link hover:text-gray-400 flex items-center">
+                            <i class="fas fa-layer-group"></i> <!-- Category Icon -->
+                            دسته‌بندی ها
+                            <i class="fas fa-chevron-down text-xs ml-1"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-header">بخش ها</div>
+                            <a href="#"><i class="fas fa-film"></i>ژانر فیلم</a>
+                            <a href="#"><i class="fas fa-tv"></i>ژانر سریال</a>
+                             <!-- Add other links if needed -->
+                        </div>
+                    </div>
+                     <a href="#" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-users"></i>بازیگران</a>
+                     <a href="#" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-crown text-yellow-400"></i>خرید اشتراک</a>
                 </nav>
             </div>
             <div class="flex items-center space-x-5 space-x-reverse">
