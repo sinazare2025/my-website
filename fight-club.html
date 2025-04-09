@@ -43,11 +43,76 @@
         .footer-button:hover { opacity: 0.9; }
         .telegram-button { background-color: #0088cc; color: white; }
         .instagram-button { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
+        /* Ensure dropdown styles are present (they should be copied already) */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1f1f1f;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+            z-index: 51;
+            border-radius: 8px;
+            padding: 0;
+            top: 100%; /* Position directly below */
+            left: 50%;
+            transform: translateX(-50%);
+            border: 1px solid #333;
+            overflow: hidden;
+        }
+        .dropdown-content .dropdown-header {
+            background-color: #a3e635;
+            color: #1f1f1f;
+            padding: 10px 16px;
+            font-weight: bold;
+            text-align: center;
+            font-size: 0.95rem;
+        }
+        .dropdown-content a {
+            color: #ccc;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            text-align: right;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            background-color: #2a2a2a;
+            border-top: 1px solid #383838;
+            transition: background-color 0.2s ease;
+        }
+         .dropdown-content a i {
+            margin-left: 8px;
+             width: 16px;
+             text-align: center;
+        }
+        .dropdown-content a:hover {
+            background-color: #383838;
+            color: #fff;
+         }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .nav-link i.fa-chevron-down {
+            margin-right: 5px;
+            transition: transform 0.2s ease;
+        }
+        .dropdown:hover .nav-link i.fa-chevron-down {
+            transform: rotate(180deg);
+        }
+        nav .nav-link i:not(.fa-chevron-down) {
+             margin-left: 6px;
+             color: #a3e635;
+         }
     </style>
 </head>
 <body class="bg-black text-gray-200">
 
-    <!-- Header (کپی شده از cfilm.html) -->
+    <!-- Header (Updated to match cfilm.html) -->
     <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 py-3 px-6 md:px-10">
         <div class="container mx-auto flex items-center justify-between">
              <div class="flex items-center space-x-8 space-x-reverse">
@@ -64,6 +129,7 @@
                             <div class="dropdown-header">بخش ها</div>
                             <a href="#"><i class="fas fa-film"></i>ژانر فیلم</a>
                             <a href="#"><i class="fas fa-tv"></i>ژانر سریال</a>
+                             <!-- Add other links if needed -->
                         </div>
                     </div>
                     <a href="#" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-users"></i>بازیگران</a>
