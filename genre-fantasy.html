@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سی فیلم | ژانر فانتزی</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Basic styles from cfilm.html */
+        body { background-color: #111; color: #e5e5e5; font-family: 'Vazirmatn', sans-serif; }
+        @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
+        .brand-text { color: #981b2a; font-weight: bold; font-size: 1.5rem; }
+        .nav-link { color: #e5e5e5; transition: color 0.2s ease; }
+        .nav-link:hover { color: #bbb; }
+        .imdb-badge { background-color: #f5c518; color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; display: inline-block; }
+        .movie-poster-container { position: relative; }
+        .movie-poster { transition: transform 0.3s ease; border-radius: 8px; overflow: hidden; width: 100%; height: auto; aspect-ratio: 2 / 3; object-fit: cover; }
+        .movie-poster-container:hover .movie-poster { transform: scale(1.05); border: 2px solid #981b2a; }
+        .poster-badge { position: absolute; top: 8px; left: 8px; background-color: rgba(0, 0, 0, 0.7); color: #e5e5e5; padding: 2px 6px; border-radius: 4px; font-size: 0.7rem; font-weight: bold; }
+        .poster-badge.hd { left: auto; right: 8px; background-color: #981b2a; }
+        .footer-button { display: flex; align-items: center; justify-content: space-between; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px; font-weight: bold; text-decoration: none; transition: opacity 0.2s ease; }
+        .footer-button:hover { opacity: 0.9; }
+        .telegram-button { background-color: #0088cc; color: white; }
+        .instagram-button { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-content { display: none; position: absolute; background-color: #1f1f1f; min-width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3); z-index: 51; border-radius: 8px; padding: 0; top: 100%; left: 50%; transform: translateX(-50%); border: 1px solid #333; overflow: hidden; }
+        .dropdown-content .dropdown-header { background-color: #a3e635; color: #1f1f1f; padding: 10px 16px; font-weight: bold; text-align: center; font-size: 0.95rem; }
+        .dropdown-content a { color: #ccc; padding: 12px 16px; text-decoration: none; display: flex; align-items: center; justify-content: flex-end; text-align: right; font-size: 0.9rem; white-space: nowrap; background-color: #2a2a2a; border-top: 1px solid #383838; transition: background-color 0.2s ease; }
+        .dropdown-content a i { margin-left: 8px; width: 16px; text-align: center; }
+        .dropdown-content a:hover { background-color: #383838; color: #fff; }
+        .dropdown:hover .dropdown-content { display: block; }
+        .nav-link i.fa-chevron-down { margin-right: 5px; transition: transform 0.2s ease; }
+        .dropdown:hover .nav-link i.fa-chevron-down { transform: rotate(180deg); }
+        nav .nav-link i:not(.fa-chevron-down) { margin-left: 6px; color: #a3e635; }
+    </style>
+</head>
+<body class="bg-black text-gray-200">
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 py-3 px-6 md:px-10">
+        <div class="container mx-auto flex items-center justify-between">
+             <div class="flex items-center space-x-8 space-x-reverse">
+                <a href="cfilm.html" class="brand-text">سی فیلم</a>
+                <nav class="hidden md:flex space-x-5 space-x-reverse items-center">
+                    <a href="cfilm.html" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-home"></i>صفحه اصلی</a>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link hover:text-gray-400 flex items-center">
+                            <i class="fas fa-layer-group"></i>
+                            دسته‌بندی ها
+                            <i class="fas fa-chevron-down text-xs ml-1"></i>
+                        </a>
+                        <div class="dropdown-content">
+                            <div class="dropdown-header">ژانر فیلم</div>
+                            <a href="genre-drama.html"><i class="fas fa-theater-masks"></i>درام</a>
+                            <a href="genre-psychological.html"><i class="fas fa-brain"></i>روانشناختی</a>
+                            <a href="genre-thriller.html"><i class="fas fa-bolt"></i>هیجان‌انگیز</a>
+                            <a href="genre-epic.html"><i class="fas fa-shield-alt"></i>حماسی</a>
+                            <a href="genre-fantasy.html"><i class="fas fa-dragon"></i>فانتزی</a>
+                            <a href="genre-adventure.html"><i class="fas fa-compass"></i>ماجراجویی</a>
+                            <a href="genre-war.html"><i class="fas fa-helmet-battle"></i>جنگی</a>
+                            <a href="genre-comedy.html"><i class="fas fa-laugh-beam"></i>کمدی</a>
+                            <a href="genre-music.html"><i class="fas fa-music"></i>موسیقی</a>
+                            <div class="dropdown-header">ژانر سریال/انیمه</div>
+                            <a href="genre-action.html"><i class="fas fa-fist-raised"></i>اکشن</a>
+                            <a href="genre-fantasy.html"><i class="fas fa-dragon"></i>فانتزی</a> 
+                            <a href="genre-adventure.html"><i class="fas fa-compass"></i>ماجراجویی</a>
+                            <a href="genre-epic.html"><i class="fas fa-shield-alt"></i>حماسی</a>
+                        </div>
+                    </div>
+                </nav>
+             </div>
+             <div class="flex items-center space-x-5 space-x-reverse">
+                <button class="md:hidden text-gray-300 hover:text-white"><i class="fas fa-bars text-xl"></i></button>
+             </div>
+        </div>
+    </header>
+    <main class="container mx-auto px-6 md:px-10 py-8">
+        <h1 class="text-3xl font-bold text-white mb-6 border-b-2 border-red-600 pb-2">ژانر: فانتزی</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-6 justify-center">
+            <!-- Movie/Series items for this genre will be inserted here -->
+        </div>
+    </main>
+     <footer class="py-6 text-center text-gray-500 text-sm mt-12">
+         <div class="container mx-auto px-6 md:px-10">
+             <div class="max-w-xs mx-auto mb-6">
+                 <a href="#" class="footer-button telegram-button"><span>کانال تلگرام</span><i class="fab fa-telegram-plane"></i></a>
+                 <a href="#" class="footer-button instagram-button"><span>صفحه اینستاگرام</span><i class="fab fa-instagram"></i></a>
+             </div>
+             کلیه حقوق مادی و معنوی این وبسایت متعلق به سی فیلم میباشد. © 2024
+         </div>
+     </footer>
+</body>
+</html>
