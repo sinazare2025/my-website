@@ -46,7 +46,7 @@
                     <span class="brand-text">سی فیلم</span>
                 </a>
                 <nav class="hidden md:flex space-x-5 space-x-reverse items-center">
-                    <a href="cfilm.html" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-home"></i>صفحه اصلی</a>
+                    <a href="index.html" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-home"></i>صفحه اصلی</a>
                     <div class="dropdown">
                         <a href="#" class="nav-link hover:text-gray-400 flex items-center">
                             <i class="fas fa-layer-group"></i>
@@ -74,9 +74,67 @@
                 </nav>
              </div>
              <div class="flex items-center space-x-5 space-x-reverse">
-                <button class="md:hidden text-gray-300 hover:text-white"><i class="fas fa-bars text-xl"></i></button>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
              </div>
         </div>
+         <!-- Mobile Menu -->
+         <div id="mobile-menu" class="md:hidden bg-black/90 p-4 hidden">
+             <a href="index.html" class="block py-2 text-gray-300 hover:text-white">
+                 <i class="fas fa-home ml-2"></i>صفحه اصلی
+             </a>
+             <div class="py-2">
+                 <div class="flex justify-between items-center text-gray-300 hover:text-white cursor-pointer mobile-dropdown-toggle">
+                     <span><i class="fas fa-layer-group ml-2"></i>دسته‌بندی ها</span>
+                     <i class="fas fa-chevron-down text-xs"></i>
+                 </div>
+                 <div class="mobile-dropdown-content hidden pt-2 pb-1 pl-4 mt-1">
+                     <div class="py-1 text-gray-400 font-bold">ژانر فیلم</div>
+                     <a href="genre-drama.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-theater-masks ml-2"></i>درام
+                     </a>
+                     <a href="genre-psychological.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-brain ml-2"></i>روانشناختی
+                     </a>
+                     <a href="genre-thriller.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-bolt ml-2"></i>هیجان‌انگیز
+                     </a>
+                     <a href="genre-epic.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-shield-alt ml-2"></i>حماسی
+                     </a>
+                     <a href="genre-fantasy.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-dragon ml-2"></i>فانتزی
+                     </a>
+                     <a href="genre-adventure.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-compass ml-2"></i>ماجراجویی
+                     </a>
+                     <a href="genre-war.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-helmet-battle ml-2"></i>جنگی
+                     </a>
+                     <a href="genre-comedy.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-laugh-beam ml-2"></i>کمدی
+                     </a>
+                     <a href="genre-music.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-music ml-2"></i>موسیقی
+                     </a>
+                     <div class="py-1 text-gray-400 font-bold mt-2">ژانر سریال/انیمه</div>
+                     <a href="genre-action.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-fist-raised ml-2"></i>اکشن
+                     </a>
+                     <a href="genre-fantasy.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-dragon ml-2"></i>فانتزی
+                     </a>
+                     <a href="genre-adventure.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-compass ml-2"></i>ماجراجویی
+                     </a>
+                     <a href="genre-epic.html" class="block py-1 text-gray-300 hover:text-white">
+                         <i class="fas fa-shield-alt ml-2"></i>حماسی
+                     </a>
+                 </div>
+             </div>
+         </div>
     </header>
 
     <!-- Main Content -->
@@ -107,12 +165,34 @@
                 <div class="flex justify-center mb-4">
                     <img src="images/logo.png" alt="سی فیلم" class="h-16">
                 </div>
-                <a href="#" class="footer-button telegram-button"><span>کانال تلگرام</span><i class="fab fa-telegram-plane"></i></a>
-                <a href="#" class="footer-button instagram-button"><span>صفحه اینستاگرام</span><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/cfilmchannel" class="footer-button telegram-button"><span>کانال تلگرام</span><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://instagram.com/cfilm.official" class="footer-button instagram-button"><span>صفحه اینستاگرام</span><i class="fab fa-instagram"></i></a>
              </div>
              کلیه حقوق مادی و معنوی این وبسایت متعلق به سی فیلم میباشد. © 2024
          </div>
      </footer>
 
 </body>
+<!-- Add JavaScript for mobile menu and dropdown functionality -->
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // Mobile dropdowns
+    const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+    mobileDropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            content.classList.toggle('hidden');
+            const chevron = this.querySelector('.fa-chevron-down');
+            if (chevron) {
+                chevron.classList.toggle('transform');
+                chevron.classList.toggle('rotate-180');
+            }
+        });
+    });
+</script>
 </html> 
