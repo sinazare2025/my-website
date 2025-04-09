@@ -17,10 +17,12 @@
 
         .hero-bg {
             background-image: linear-gradient(to top, rgba(17, 17, 17, 1) 0%, rgba(17, 17, 17, 0.2) 30%), linear-gradient(to right, rgba(17, 17, 17, 0.7) 0%, rgba(17, 17, 17, 0) 50%), url('https://www.myf2mz.ir/wp-content/uploads/2024/03/a7i9OdTUo9jZ1XoraCRIQNJ6ACX-360x480.jpg'); /* Solo Leveling Poster */
-            background-size: cover;
-            background-position: center top; /* Adjust as needed */
+            background-size: contain; /* Changed from cover to contain */
+            background-position: center center; /* Changed from center top */
+            background-repeat: no-repeat; /* Added no-repeat */
             height: 75vh; /* Adjust height */
             position: relative;
+            background-color: #111; /* Ensure background color for empty space */
         }
         .imdb-badge {
             background-color: #f5c518; /* IMDb yellow */
@@ -147,6 +149,39 @@
             background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
             color: white;
         }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #222; /* Dark background for dropdown */
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 8px 0;
+            top: 100%; /* Position below the nav link */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .dropdown-content a {
+            color: #ccc;
+            padding: 10px 16px;
+            text-decoration: none;
+            display: block;
+            text-align: right;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .dropdown-content a:hover { background-color: #333 } /* Darker background on hover */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .nav-link i {
+            margin-left: 5px; /* Space for dropdown icon */
+        }
     </style>
 </head>
 <body class="bg-black text-gray-200">
@@ -157,9 +192,20 @@
             <!-- Right Side: Logo & Nav -->
             <div class="flex items-center space-x-8 space-x-reverse">
                 <a href="#" class="brand-text">سی فیلم</a>
-                <nav class="hidden md:flex space-x-5 space-x-reverse">
+                <nav class="hidden md:flex space-x-5 space-x-reverse items-center">
                     <a href="#" class="nav-link hover:text-gray-400">صفحه اصلی</a>
-                    <a href="#" class="nav-link hover:text-gray-400">دسته‌بندی ها</a>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link hover:text-gray-400 flex items-center">
+                            دسته‌بندی ها
+                            <i class="fas fa-chevron-down text-xs ml-1"></i> <!-- Dropdown Icon -->
+                        </a>
+                        <div class="dropdown-content">
+                            <a href="#">ژانر فیلم</a>
+                            <a href="#">ژانر سریال</a>
+                            <a href="#">باکس آفیس</a>
+                            <a href="#">250 فیلم برتر</a>
+                        </div>
+                    </div>
                     <a href="#" class="nav-link hover:text-gray-400">بازیگران</a>
                     <a href="#" class="nav-link hover:text-gray-400"><i class="fas fa-crown text-yellow-400 ml-1"></i>خرید اشتراک</a>
                 </nav>
