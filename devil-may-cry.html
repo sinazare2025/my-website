@@ -42,7 +42,32 @@
         .footer-button { display: flex; align-items: center; justify-content: space-between; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px; font-weight: bold; text-decoration: none; transition: opacity 0.2s ease; }
         .footer-button:hover { opacity: 0.9; }
         .telegram-button { background-color: #0088cc; color: white; }
-        .instagram-button { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: white; }
+        .instagram-button {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: white;
+        }
+        /* Mobile Menu Styles */
+        #mobile-menu {
+            transition: all 0.3s ease;
+        }
+        .mobile-dropdown-content {
+            transition: all 0.3s ease;
+        }
+        .mobile-dropdown-toggle .fa-chevron-down {
+            transition: transform 0.3s ease;
+        }
+        .mobile-dropdown-toggle .fa-chevron-down.rotate-180 {
+            transform: rotate(180deg);
+        }
+        @media (max-width: 768px) {
+            .dropdown-content {
+                position: static;
+                width: 100%;
+                transform: none;
+                margin-top: 0;
+                box-shadow: none;
+            }
+        }
     </style>
 </head>
 <body class="bg-black text-gray-200">
@@ -84,10 +109,53 @@
                 </nav>
              </div>
              <div class="flex items-center space-x-5 space-x-reverse">
-                 <button class="md:hidden text-gray-300 hover:text-white"><i class="fas fa-bars text-xl"></i></button>
+                 <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
+                     <i class="fas fa-bars text-xl"></i>
+                 </button>
              </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden fixed top-16 left-0 right-0 bg-black/95 p-4 hidden z-50">
+        <a href="index.html" class="block py-2 text-gray-300 hover:text-white">
+            <i class="fas fa-home ml-2"></i>صفحه اصلی
+        </a>
+        <div class="py-2">
+            <div class="flex justify-between items-center text-gray-300 hover:text-white cursor-pointer mobile-dropdown-toggle">
+                <span><i class="fas fa-layer-group ml-2"></i>دسته‌بندی ها</span>
+                <i class="fas fa-chevron-down text-xs"></i>
+            </div>
+            <div class="mobile-dropdown-content hidden pt-2 pb-1 pr-4 mt-1">
+                <div class="py-1 text-gray-400 font-bold">ژانر فیلم</div>
+                <a href="genre-drama.html" class="block py-1 text-gray-300 hover:text-white">
+                    <i class="fas fa-theater-masks ml-2"></i>درام
+                </a>
+                <a href="genre-psychological.html" class="block py-1 text-gray-300 hover:text-white">
+                    <i class="fas fa-brain ml-2"></i>روانشناختی
+                </a>
+                <a href="genre-thriller.html" class="block py-1 text-gray-300 hover:text-white">
+                    <i class="fas fa-bolt ml-2"></i>هیجان‌انگیز
+                </a>
+                <a href="genre-epic.html" class="block py-1 text-gray-300 hover:text-white">
+                    <i class="fas fa-shield-alt ml-2"></i>حماسی
+                </a>
+                <div class="py-1 text-gray-400 font-bold mt-2">ژانر سریال/انیمه</div>
+                <a href="genre-anime-action.html" class="block py-1 text-gray-300 hover:text-white">
+                    <i class="fas fa-fist-raised ml-2"></i>اکشن
+                </a>
+                <a href="genre-anime-fantasy.html" class="block py-1 text-gray-300 hover:text-white">
+                    <i class="fas fa-dragon ml-2"></i>فانتزی
+                </a>
+                <a href="genre-anime-adventure.html" class="block py-1 text-gray-300 hover:text-white">
+                    <i class="fas fa-compass ml-2"></i>ماجراجویی
+                </a>
+                <a href="genre-anime-epic.html" class="block py-1 text-gray-300 hover:text-white">
+                    <i class="fas fa-shield-alt ml-2"></i>حماسی
+                </a>
+            </div>
+        </div>
+    </div>
 
     <!-- Main Content -->
     <main class="container mx-auto px-6 md:px-10 py-8">
@@ -239,5 +307,27 @@
          </div>
      </footer>
 
+    <!-- JavaScript for mobile menu functionality -->
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mobile dropdowns
+        const mobileDropdownToggles = document.querySelectorAll('.mobile-dropdown-toggle');
+        mobileDropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                content.classList.toggle('hidden');
+                const chevron = this.querySelector('.fa-chevron-down');
+                if (chevron) {
+                    chevron.classList.toggle('transform');
+                    chevron.classList.toggle('rotate-180');
+                }
+            });
+        });
+    </script>
 </body>
 </html> 
