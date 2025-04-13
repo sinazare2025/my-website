@@ -156,54 +156,66 @@
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #1f1f1f; /* Slightly lighter dark background like example */
-            min-width: 200px; /* Increased width */
+            background-color: #1f1f1f;
+            min-width: 200px;
             box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
-            z-index: 51; /* Ensure it's above header */
-            border-radius: 8px; /* Rounded corners like example */
-            padding: 0; /* Remove padding, apply to items */
-            top: 100%; /* Position directly below nav link - Removed 10px gap */
-            left: 50%;
-            transform: translateX(-50%);
-            border: 1px solid #333; /* Subtle border */
-            overflow: hidden; /* Ensure border radius applies to children */
+            z-index: 51;
+            border-radius: 8px;
+            padding: 0;
+            right: 50%;
+            transform: translateX(50%);
+            border: 1px solid #333;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 50%;
+            transform: translateX(50%) rotate(45deg);
+            width: 16px;
+            height: 16px;
+            background-color: #a3e635;
+            z-index: -1;
         }
         .dropdown-content .dropdown-header {
-            background-color: #a3e635; /* Lime green like example */
-            color: #1f1f1f; /* Dark text on green */
+            background-color: #a3e635;
+            color: #1f1f1f;
             padding: 10px 16px;
             font-weight: bold;
-            text-align: center;
+            text-align: right;
             font-size: 0.95rem;
         }
         .dropdown-content a {
             color: #ccc;
-            padding: 12px 16px; /* Slightly more padding */
+            padding: 12px 16px;
             text-decoration: none;
-            display: flex; /* Use flex for alignment */
-            align-items: center; /* Align icon and text */
-            justify-content: flex-end; /* Align text to right */
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
             text-align: right;
             font-size: 0.9rem;
             white-space: nowrap;
-            background-color: #2a2a2a; /* Darker item background */
-            border-top: 1px solid #383838; /* Separator */
+            background-color: #2a2a2a;
+            border-top: 1px solid #383838;
             transition: background-color 0.2s ease;
         }
-         .dropdown-content a i {
-            margin-left: 8px; /* Space between icon and text */
-             width: 16px; /* Fixed width for icon alignment */
-             text-align: center;
+        .dropdown-content a i {
+            margin-left: 8px;
+            width: 16px;
+            text-align: center;
+            color: #a3e635;
         }
         .dropdown-content a:hover {
-            background-color: #383838; /* Slightly lighter on hover */
+            background-color: #383838;
             color: #fff;
          }
         .dropdown:hover .dropdown-content {
             display: block;
         }
         .nav-link i.fa-chevron-down {
-            margin-right: 5px; /* Space before dropdown icon */
+            margin-right: 5px;
             transition: transform 0.2s ease;
         }
         .dropdown:hover .nav-link i.fa-chevron-down {
@@ -212,7 +224,7 @@
          /* Add styles for icons in main nav */
         nav .nav-link i:not(.fa-chevron-down) {
              margin-left: 6px;
-             color: #a3e635; /* Lime green for nav icons */
+             color: #a3e635;
         }
     </style>
 </head>
