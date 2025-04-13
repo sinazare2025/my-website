@@ -9,63 +9,195 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* استایل‌های پایه مشابه cfilm.html */
+        /* Base styles */
         body {
             background-color: #111;
             color: #e5e5e5;
             font-family: 'Vazirmatn', sans-serif;
         }
         @import url('https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css');
-        .brand-text { color: #981b2a; font-weight: bold; font-size: 1.5rem; }
-        .nav-link { color: #e5e5e5; transition: color 0.2s ease; }
-        .nav-link:hover { color: #bbb; }
-        .login-button { background-color: #981b2a; color: white; }
-        .info-section { background-color: #1a1a1a; border-radius: 8px; padding: 20px; }
-        .info-section h2 { color: #981b2a; font-size: 1.4rem; font-weight: bold; margin-bottom: 15px; border-bottom: 2px solid #333; padding-bottom: 10px; }
-        .info-section h3 { color: #d8a8a8; font-size: 1.1rem; font-weight: bold; margin-top: 15px; margin-bottom: 8px; }
-        .info-section p, .info-section li { color: #ccc; line-height: 1.7; margin-bottom: 10px; font-size: 0.95rem; }
-        .info-section strong { color: #e5e5e5; font-weight: bold; }
-        .info-section ul { list-style: none; padding-right: 0; }
-        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .info-item { background-color: #222; padding: 10px; border-radius: 5px; }
-        .info-item-title { font-weight: bold; color: #981b2a; display: block; margin-bottom: 5px; font-size: 0.9rem;}
-        .info-item-value { color: #ccc; font-size: 0.9rem; }
-        .imdb-badge { background-color: #f5c518; color: #000; padding: 2px 8px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; display: inline-block; }
-        .download-section { margin-top: 30px; }
-        .download-links table { width: 100%; border-collapse: collapse; margin-top: 15px; background-color: #1f1f1f; border-radius: 8px; overflow: hidden; }
-        .download-links th, .download-links td { border: 1px solid #333; padding: 10px 12px; text-align: right; font-size: 0.9rem; }
-        .download-links th { background-color: #981b2a; color: white; font-weight: bold; }
-        .download-links td { color: #ccc; }
-        .download-links td a { color: #3498db; text-decoration: none; transition: color 0.2s ease; display: inline-block; margin-left: 10px; }
-        .download-links td a:hover { color: #5dade2; }
-        .download-links .quality-badge { background-color: #555; color: #eee; padding: 2px 6px; border-radius: 4px; font-size: 0.8rem; display: inline-block; margin-right: 8px; }
-        .footer-button { display: flex; align-items: center; justify-content: space-between; padding: 10px 15px; border-radius: 8px; margin-bottom: 10px; font-weight: bold; text-decoration: none; transition: opacity 0.2s ease; }
-        .footer-button:hover { opacity: 0.9; }
-        .telegram-button { background-color: #0088cc; color: white; }
-        .instagram-button {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: white;
+        
+        /* Header and Navigation */
+        .brand-text { 
+            color: #981b2a; 
+            font-weight: bold; 
+            font-size: 1.5rem; 
         }
-        /* Mobile Menu Styles */
+        .nav-link { 
+            color: #e5e5e5; 
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .nav-link:hover { color: #fff; }
+        .nav-link i { color: #a3e635; }
+        
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1f1f1f;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.3);
+            z-index: 51;
+            border-radius: 8px;
+            padding: 0;
+            right: 50%;
+            transform: translateX(50%);
+            border: 1px solid #333;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 50%;
+            transform: translateX(50%) rotate(45deg);
+            width: 16px;
+            height: 16px;
+            background-color: #a3e635;
+            z-index: -1;
+        }
+        .dropdown-content .dropdown-header {
+            background-color: #a3e635;
+            color: #1f1f1f;
+            padding: 10px 16px;
+            font-weight: bold;
+            text-align: right;
+            font-size: 0.95rem;
+        }
+        .dropdown-content a {
+            color: #ccc;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            text-align: right;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            background-color: #2a2a2a;
+            border-top: 1px solid #383838;
+            transition: background-color 0.2s ease;
+        }
+        .dropdown-content a i {
+            margin-left: 8px;
+            width: 16px;
+            text-align: center;
+            color: #a3e635;
+        }
+        .dropdown-content a:hover {
+            background-color: #383838;
+            color: #fff;
+        }
+
+        /* Info Sections */
+        .info-section {
+            background-color: #1a1a1a;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .info-section h2 {
+            color: #981b2a;
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .info-section h2 i {
+            color: #a3e635;
+        }
+        
+        /* Grid Layout */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            background-color: #222;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+        .info-item-title {
+            color: #a3e635;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+        }
+        .info-item-value {
+            color: #e5e5e5;
+            font-size: 0.9rem;
+        }
+
+        /* Download Section */
+        .download-links table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .download-links th {
+            background-color: #a3e635;
+            color: #1f1f1f;
+            font-weight: bold;
+            padding: 12px 16px;
+            text-align: right;
+        }
+        .download-links td {
+            border: 1px solid #333;
+            padding: 12px 16px;
+            color: #e5e5e5;
+        }
+        .download-links td a {
+            color: #a3e635;
+            text-decoration: none;
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .download-links td a:hover {
+            color: #86efac;
+        }
+        
+        /* Mobile Menu */
         #mobile-menu {
-            transition: all 0.3s ease;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
         }
         .mobile-dropdown-content {
-            transition: all 0.3s ease;
+            background-color: #1f1f1f;
+            border-radius: 8px;
+            margin-top: 8px;
         }
-        .mobile-dropdown-toggle .fa-chevron-down {
-            transition: transform 0.3s ease;
-        }
-        .mobile-dropdown-toggle .fa-chevron-down.rotate-180 {
-            transform: rotate(180deg);
-        }
+        
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .dropdown-content {
-                position: static;
-                width: 100%;
-                transform: none;
-                margin-top: 0;
-                box-shadow: none;
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            .download-links {
+                overflow-x: auto;
             }
         }
     </style>
@@ -73,46 +205,49 @@
 <body class="bg-black text-gray-200">
 
     <!-- Header -->
-    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 py-3 px-6 md:px-10">
-        <div class="container mx-auto flex items-center justify-between">
-             <div class="flex items-center space-x-8 space-x-reverse">
-                <a href="index.html" class="flex items-center">
-                    <img src="https://i.pinimg.com/736x/43/25/85/4325855c61d486bb0a670b8aa0932d6f.jpg" alt="سی فیلم" class="h-10 ml-2 rounded-full">
-                    <span class="brand-text">سی فیلم</span>
-                </a>
-                <nav class="hidden md:flex space-x-5 space-x-reverse items-center">
-                    <a href="index.html" class="nav-link hover:text-gray-400 flex items-center"><i class="fas fa-home"></i>صفحه اصلی</a>
-                    <div class="dropdown">
-                        <a href="#" class="nav-link hover:text-gray-400 flex items-center">
-                            <i class="fas fa-layer-group"></i>
-                            دسته‌بندی ها
-                            <i class="fas fa-chevron-down text-xs ml-1"></i>
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center gap-8">
+                    <a href="index.html" class="flex items-center gap-2">
+                        <img src="https://i.pinimg.com/736x/43/25/85/4325855c61d486bb0a670b8aa0932d6f.jpg" alt="سی فیلم" class="h-10 rounded-full">
+                        <span class="brand-text">سی فیلم</span>
+                    </a>
+                    <nav class="hidden md:flex items-center gap-6">
+                        <a href="index.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            صفحه اصلی
                         </a>
-                        <div class="dropdown-content">
-                            <div class="dropdown-header">ژانر فیلم</div>
-                            <a href="genre-drama.html"><i class="fas fa-theater-masks"></i>درام</a>
-                            <a href="genre-psychological.html"><i class="fas fa-brain"></i>روانشناختی</a>
-                            <a href="genre-thriller.html"><i class="fas fa-bolt"></i>هیجان‌انگیز</a>
-                            <a href="genre-epic.html"><i class="fas fa-shield-alt"></i>حماسی</a>
-                            <a href="genre-fantasy.html"><i class="fas fa-dragon"></i>فانتزی</a>
-                            <a href="genre-adventure.html"><i class="fas fa-compass"></i>ماجراجویی</a>
-                            <a href="genre-war.html"><i class="fas fa-helmet-battle"></i>جنگی</a>
-                            <a href="genre-comedy.html"><i class="fas fa-laugh-beam"></i>کمدی</a>
-                            <a href="genre-music.html"><i class="fas fa-music"></i>موسیقی</a>
-                            <div class="dropdown-header">ژانر سریال/انیمه</div>
-                            <a href="genre-anime-action.html"><i class="fas fa-fist-raised"></i>اکشن</a>
-                            <a href="genre-anime-fantasy.html"><i class="fas fa-dragon"></i>فانتزی</a>
-                            <a href="genre-anime-adventure.html"><i class="fas fa-compass"></i>ماجراجویی</a>
-                            <a href="genre-anime-epic.html"><i class="fas fa-shield-alt"></i>حماسی</a>
+                        <div class="dropdown">
+                            <button class="nav-link">
+                                <i class="fas fa-layer-group"></i>
+                                دسته‌بندی ها
+                                <i class="fas fa-chevron-down text-xs"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <div class="dropdown-header">ژانر فیلم</div>
+                                <a href="genre-drama.html"><i class="fas fa-theater-masks"></i>درام</a>
+                                <a href="genre-psychological.html"><i class="fas fa-brain"></i>روانشناختی</a>
+                                <a href="genre-thriller.html"><i class="fas fa-bolt"></i>هیجان‌انگیز</a>
+                                <a href="genre-epic.html"><i class="fas fa-shield-alt"></i>حماسی</a>
+                                <a href="genre-fantasy.html"><i class="fas fa-dragon"></i>فانتزی</a>
+                                <a href="genre-adventure.html"><i class="fas fa-compass"></i>ماجراجویی</a>
+                                <a href="genre-war.html"><i class="fas fa-helmet-battle"></i>جنگی</a>
+                                <a href="genre-comedy.html"><i class="fas fa-laugh-beam"></i>کمدی</a>
+                                <a href="genre-music.html"><i class="fas fa-music"></i>موسیقی</a>
+                                <div class="dropdown-header">ژانر سریال/انیمه</div>
+                                <a href="genre-anime-action.html"><i class="fas fa-fist-raised"></i>اکشن</a>
+                                <a href="genre-anime-fantasy.html"><i class="fas fa-dragon"></i>فانتزی</a>
+                                <a href="genre-anime-adventure.html"><i class="fas fa-compass"></i>ماجراجویی</a>
+                                <a href="genre-anime-epic.html"><i class="fas fa-shield-alt"></i>حماسی</a>
+                            </div>
                         </div>
-                    </div>
-                </nav>
-             </div>
-             <div class="flex items-center space-x-5 space-x-reverse">
-                 <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
-                     <i class="fas fa-bars text-xl"></i>
-                 </button>
-             </div>
+                    </nav>
+                </div>
+                <button id="mobile-menu-button" class="md:hidden text-gray-300 hover:text-white">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
     </header>
 
